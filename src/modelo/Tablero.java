@@ -1,5 +1,4 @@
 package modelo;
-
 public class Tablero {
 	/** @Atributo Dimensiones es un objeto de la clase Coordena. */
 	private Coordenada dimensiones;

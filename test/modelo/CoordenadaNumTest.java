@@ -1,5 +1,4 @@
 package modelo; // Como el packete se llama igual al de coordenadas, no hay que importar nada.
-
 import static org.junit.Assert.*;
 
 import org.junit.Before;
