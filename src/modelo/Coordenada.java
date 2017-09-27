@@ -47,13 +47,23 @@ public class Coordenada {
 	public static int getNumeroCoordenadas() {
 		return NUMERO_COORDENADAS;
 	}
-	/**
-	 * @Parametros Object obj.
-	 * @Función Metodo equals para comparar si dos objetos "Coordenada" comparten atributos.
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + x;
+		result = prime * result + y;
+		return result;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		/* Comprobar si ambos objetos apuntan a la misma dirección de memoria. */
 		if (this == obj) {
 			return true;
 		}
@@ -63,13 +73,10 @@ public class Coordenada {
 		if (!(obj instanceof Coordenada)) {
 			return false;
 		}
-		/* Castear "obj" a la clase Coordenada. */
 		Coordenada other = (Coordenada) obj;
-		/* Comprobar si el atributo 'x' es igual en ambos objetos. */
 		if (x != other.x) {
 			return false;
 		}
-		/* Comprobar si el atributo 'y' es igual en ambos objetos. */
 		if (y != other.y) {
 			return false;
 		}
