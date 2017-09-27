@@ -5,9 +5,9 @@ package modelo;
  * 
  * */
 public class Coordenada {
-	/** @Atributo_Privado Valor X de la coordenada. */
+	/** @Atributo_Privado Valor X de la coordenada. Representa la anchura. */
 	private int x;
-	/** @Atributo_Privado Valor Y de la coordenada. */
+	/** @Atributo_Privado Valor Y de la coordenada. Representa la altura. */
 	private int y;
 	/** @Atributo_Privado Número total de coordenadas creadas. */
 	private static int NUMERO_COORDENADAS;
