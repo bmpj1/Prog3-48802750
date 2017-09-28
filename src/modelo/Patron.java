@@ -11,11 +11,10 @@ public class Patron {
 	}
 	public String getNombre() { return nombre; }
 	public EstadoCelda getCelda(Coordenada c) {
-		
-		return null;
+		return tablero.getCelda(c);
 	}
 	public Collection<Coordenada> getPosiciones() {
-		return null;
+		return tablero.getPosiciones();
 	}
 	public String toString() {
 		return null;

@@ -3,6 +3,7 @@ package mains;
 import java.util.ArrayList;
 
 import modelo.Coordenada;
+import modelo.Tablero;
 
 /**
 @author drizo
@@ -60,6 +61,6 @@ public class Main1 {
 			System.out.println("c7 y c3 son iguales");
 		}
 
-		System.out.println("Num.total de coordenadas: " + Coordenada.getNumeroCoordenadas());		
+		System.out.println("Num.total de coordenadas: " + Coordenada.getNumeroCoordenadas());
 	}
 }
