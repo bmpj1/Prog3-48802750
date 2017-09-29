@@ -10,8 +10,9 @@ public class Juego {
 	public Juego(Tablero tablero, ReglaConway regla) {
 		this.tablero = tablero;
 		this.regla = regla;
+		patronesUsados = new ArrayList<Patron>();
 	}
-	void cargaPatron(Patron p, Coordenada posicionInicial) {
+	public void cargaPatron(Patron p, Coordenada posicionInicial) {
 		if(tablero.cargaPatron(p, posicionInicial)==true) {
 			patronesUsados.add(p);
 		} else {
