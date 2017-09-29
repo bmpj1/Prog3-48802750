@@ -97,6 +97,4 @@ public class Coordenada {
 	{
 		return new Coordenada(x+otra.getX(),y+otra.getY());
 	}
-	
-	
 }
