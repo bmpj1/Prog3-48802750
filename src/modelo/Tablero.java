@@ -31,7 +31,7 @@ public class Tablero {
 	}
 	
 	public EstadoCelda getCelda(Coordenada c) {
-		if(celdas.containsKey(c)) { muestraErrorPosicionInvalida(c); return null; }
+		if(celdas.containsKey(c)==false) { muestraErrorPosicionInvalida(c); return null; }
 		return celdas.get(c);
 	}
 	
@@ -42,8 +42,8 @@ public class Tablero {
 	public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada c) {
 		ArrayList<Coordenada> cordVecinas = new ArrayList<Coordenada>();
 		Coordenada otra;
-		/**j 0 1 2 
-		 * i ------
+		/**i 1 2 3 
+		 * j ------
 		 * 0|0 7 6
 		 * 1|1 - 5
 		 * 2|2 3 4
@@ -59,6 +59,7 @@ public class Tablero {
 			j++;
 		} while(j<=(c.getY()+1));
 		j--;
+		i++;
 		// Mantiene constante la j con valor Y+1
 		// Y aumenta i hasta X+1
 		do {
@@ -68,24 +69,22 @@ public class Tablero {
 			i++;
 		}while(i<=(c.getX()+1));
 		i--;
+		j--;
 		// Mantiene constante la i con valor X+1
 		// Y disminuye j hasta Y-1
 		do {
-			otra = new Coordenada(j,i);
+			otra = new Coordenada(i,j);
 			if(celdas.containsKey(otra))
 				cordVecinas.add(otra);
 			j--;
 		}while(j>=(c.getY()-1));
 		j++;
+		i--;
 		// Mantiene constante la j con valor Y-1
 		// Y disminuye i hasta X
-		do {
 			otra = new Coordenada(j,i);
 			if(celdas.containsKey(otra))
 				cordVecinas.add(otra);
-			i--;
-		}while(j<=c.getX());
-		i++;
 		
 		return cordVecinas;				
 	}
