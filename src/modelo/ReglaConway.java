@@ -12,7 +12,7 @@ public class ReglaConway {
 		//cordVecinas = tablero.getPosicionesVecinasCCW(posicion);
 		int vecinas=0;
 		Iterator<Coordenada> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
-		while(cordVecinas.hasNext()) {
+		while(cordVecinas.hasNext() && vecinas!=4) {
 			Coordenada key = cordVecinas.next();
 			if(tablero.getCelda(key)==EstadoCelda.VIVA) {
 				vecinas++;
