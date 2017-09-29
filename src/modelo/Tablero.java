@@ -120,3 +120,10 @@ public class Tablero {
 			return false;
 	}
 }
+/**REFERENCIAS:
+*	HashMap: https://www.youtube.com/watch?v=TX5Sucd1CRA
+*		 https://www.youtube.com/watch?v=RzTkm_FJRf8
+*		 http://www.dlsi.ua.es/asignaturas/prog3/jcf_facil.html#mapas
+*
+*	ArrayList: https://www.youtube.com/watch?v=XSDhZgSP7G8
+*/
