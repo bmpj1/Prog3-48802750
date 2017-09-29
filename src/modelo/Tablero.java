@@ -108,7 +108,7 @@ public class Tablero {
 		iterator = p.getPosiciones().iterator();
 		while(iterator.hasNext() && copiar == true) {
 			Coordenada key = iterator.next();
-			celdas.put(key, p.getCelda(key));
+			celdas.put(key.suma(a), p.getCelda(key));
 		}
 		return copiar;
 	}
