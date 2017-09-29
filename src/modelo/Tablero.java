@@ -118,6 +118,34 @@ public class Tablero {
 		else
 			return false;
 	}
+	public String toString() {
+		int X = dimensiones.getX();
+		int Y = dimensiones.getY();
+		String impTablero = new String("");
+		
+		for(int i=-1;i <= X; i++) {
+			if(i==-1 || i==X) { impTablero += "+"; }
+			else { impTablero += "-"; }
+		}
+		impTablero += "\n";
+		
+		for(int j=0; j<Y;j++) {
+			impTablero += "|";
+			for(int i=0; i<X; i++) {
+				if(celdas.get(new Coordenada(i,j)) == EstadoCelda.MUERTA) {
+					impTablero += " ";
+				} else { impTablero += "*"; } 
+			}
+			impTablero += "|\n";
+		}
+		
+		for(int i=-1;i <= X; i++) {
+			if(i==-1 || i==X) { impTablero += "+"; }
+			else { impTablero += "-"; }
+		}
+		impTablero += "\n";
+		return impTablero;
+	}
 }
 /**REFERENCIAS:
 *	HashMap: https://www.youtube.com/watch?v=TX5Sucd1CRA
