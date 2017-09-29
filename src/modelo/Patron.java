@@ -17,6 +17,8 @@ public class Patron {
 		return tablero.getPosiciones();
 	}
 	public String toString() {
-		return null;
+		String s = new String(nombre);
+		s += "\n";
+		return (s += tablero.toString());
 	}
 }
