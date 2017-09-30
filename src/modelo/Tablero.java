@@ -48,8 +48,8 @@ public class Tablero {
 		 * 1|1 - 5
 		 * 2|2 3 4
 		 */
-		int j=(c.getY()-1);
 		int i=(c.getX()-1);
+		int j=(c.getY()-1);
 		// Mantiene constante la i con valor X-1
 		// Y aumenta j hasta Y+1
 		do {
@@ -82,7 +82,7 @@ public class Tablero {
 		i--;
 		// Mantiene constante la j con valor Y-1
 		// Y disminuye i hasta X
-			otra = new Coordenada(j,i);
+			otra = new Coordenada(i,j);
 			if(celdas.containsKey(otra))
 				cordVecinas.add(otra);
 		
