@@ -102,9 +102,10 @@ public class Tablero {
 				muestraErrorPosicionInvalida(key.suma(a));
 				copiar = false;
 				return copiar;
+			}
 		}
 		iterator = p.getPosiciones().iterator();
-		while(iterator.hasNext() && copiar == true) {
+		while(iterator.hasNext()) {
 			Coordenada key = iterator.next();
 			celdas.put(key.suma(a), p.getCelda(key));
 		}
@@ -130,9 +131,7 @@ public class Tablero {
 		for(int j=0; j<Y;j++) {
 			impTablero += "|";
 			for(int i=0; i<X; i++) {
-				if(celdas.get(new Coordenada(i,j)) == EstadoCelda.MUERTA) {
-					impTablero += " ";
-				} else { impTablero += "*"; } 
+				impTablero += celdas.get(new Coordenada(i,j)).getEstado(); 
 			}
 			impTablero += "|\n";
 		}

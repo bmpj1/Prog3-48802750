@@ -51,12 +51,11 @@ public class Main2 {
 		// lo cargamos en un tablero y jugamos
 		Tablero t = new Tablero(new Coordenada(10,5));
 		ReglaConway r = new ReglaConway();
-		Juego juego = new Juego(t, r);/*
+		Juego juego = new Juego(t, r);
 		juego.cargaPatron(patron, new Coordenada(0,0));
 		juego.cargaPatron(patron2, new Coordenada(10,5)); // aquí no se debería cargar
 		juego.cargaPatron(patron2, new Coordenada(8,3)); // aquí sí
 		juego.cargaPatron(patron3, new Coordenada(7,0));
-*/
 		System.out.println("Patrones usados:");
 		ArrayList<Patron> patrones = juego.getPatrones();
 		for (Patron p: patrones) {
