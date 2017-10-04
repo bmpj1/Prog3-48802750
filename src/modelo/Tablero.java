@@ -7,6 +7,7 @@ import java.util.Iterator;
  
 public class Tablero {
 	private Coordenada dimensiones;
+	
 	private HashMap<Coordenada,EstadoCelda> celdas;
 	public Tablero(Coordenada dims)
 	{

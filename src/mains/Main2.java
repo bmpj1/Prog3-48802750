@@ -67,8 +67,6 @@ public class Main2 {
 			juego.actualiza();
 		}
 		System.out.println(juego.getTablero().toString());
-		
-		
 	}
 
 }
