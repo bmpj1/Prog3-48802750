@@ -3,9 +3,9 @@ package modelo;
 import java.util.Iterator;
 
 public class ReglaConway {
-	private EstadoCelda e;
+	private EstadoCelda nuevoEstado;
 	public ReglaConway() {
-		e = null;
+		nuevoEstado = null;
 	}
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) {
 		//ArrayList<Coordenada> cordVecinas = new ArrayList<Coordenada>();
@@ -19,12 +19,12 @@ public class ReglaConway {
 			}
 		}
 		if(tablero.getCelda(posicion)==EstadoCelda.VIVA && (vecinas==2 || vecinas==3)) {
-			e = EstadoCelda.VIVA;
+			nuevoEstado = EstadoCelda.VIVA;
 		} 	else if(tablero.getCelda(posicion)==EstadoCelda.MUERTA && vecinas==3) {
-				e = EstadoCelda.VIVA;
+			nuevoEstado = EstadoCelda.VIVA;
 			} else {
-				e = EstadoCelda.MUERTA;
+				nuevoEstado = EstadoCelda.MUERTA;
 			}
-		return e;		
+		return nuevoEstado;		
 	}
 }

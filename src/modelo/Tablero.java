@@ -90,7 +90,7 @@ public class Tablero {
 	}
 	
 	private void muestraErrorPosicionInvalida(Coordenada c) {
-		System.out.println("La celda " + c.toString() + " no existe");
+		System.out.println("Error: La celda " + c.toString() + " no existe");
 	}
 	
 	public boolean cargaPatron(Patron p, Coordenada a) {
@@ -99,7 +99,7 @@ public class Tablero {
 		
 		while(iterator.hasNext() && copiar) {
 			Coordenada key = iterator.next();
-			if(contiene(key.suma(a)) == false) {
+			if(this.contiene(key.suma(a)) == false) {
 				muestraErrorPosicionInvalida(key.suma(a));
 				copiar = false;
 				return copiar;
@@ -108,7 +108,8 @@ public class Tablero {
 		iterator = p.getPosiciones().iterator();
 		while(iterator.hasNext()) {
 			Coordenada key = iterator.next();
-			celdas.put(key.suma(a), p.getCelda(key));
+			Coordenada keyDefensiva = new Coordenada(key);
+			celdas.put(keyDefensiva.suma(a), p.getCelda(keyDefensiva));
 		}
 		return copiar;
 	}
