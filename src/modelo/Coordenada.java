@@ -1,15 +1,26 @@
 package modelo;
-
-
-/** @author Brian Mathias, Pesci, juliani 
+/**
  * 
- * */
+ * @author Brian Mathias, Pesci Juliani
+ *
+ */
+/**
+ * 
+ * Clase que se encarga de crear y copiar coordenadas.
+ *
+ */
 public class Coordenada {
-	/** @Atributo_Privado Valor X de la coordenada. Representa la anchura. */
+	/**
+	 * Atributo privado que representa el valor X de la coordenada. Representa la anchura en las dimensiones del tablero.
+	 */
 	private int x;
-	/** @Atributo_Privado Valor Y de la coordenada. Representa la altura. */
+	/**
+	 * Atributo privado que representa el valor Y de la coordenada. Representa la altura en las dimensiones del tablero.
+	 */
 	private int y;
-	/** @Atributo_Privado Número total de coordenadas creadas. */
+	/**
+	 * Atributo estatico y privado que representa el número total de coordenadas creadas.
+	 */
 	private static int NUMERO_COORDENADAS;
 	/**
 	 * Constructor base de la clase que inicializa los atributos X, Y e incrementa NUMERO_COORDENADAS.
@@ -22,7 +33,8 @@ public class Coordenada {
 		NUMERO_COORDENADAS++;
 	}
 	/**
-	 * @Constructor Constructor de copia de coordenadas, asigna los valores de X, Y e incrementa NUMERO_COORDENADA
+	 * Constructor de copia de coordenadas, asigna los valores de X, Y e incrementa NUMERO_COORDENADA
+	 * @param otra
 	 */
 	public Coordenada(Coordenada otra)
 	{
@@ -31,26 +43,28 @@ public class Coordenada {
 		NUMERO_COORDENADAS++;
 	}
 	/**
-	 * @return Devuelve el valor de x.
+	 * Metodo que devuelve el valor X de la coordenada.
+	 * @return X
 	 */
 	public int getX() {
 		return x;
 	}
 	/**
-	 * @return Devuelve el valor de y.
+	 * Metodo que devuelve el valor Y de la coordenada.
+	 * @return Y
 	 */
 	public int getY() {
 		return y;
 	}
 	/**
-	 * @return Devuelve el valor de NUMERO_COORDENADAS.
+	 * Metodo que devuelve el numero de coordenadas creadas.
+	 * @return NUMERO_COORDENADAS
 	 */
 	public static int getNumeroCoordenadas() {
 		return NUMERO_COORDENADAS;
 	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
+	/**
+	 * Metodo que permite comparar si dos coordenadas son iguales.
 	 */
 	@Override
 	public int hashCode() {
@@ -60,8 +74,8 @@ public class Coordenada {
 		result = prime * result + y;
 		return result;
 	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
+	/**
+	 * Metodo que permite comparar si dos coordenadas son iguales.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -83,15 +97,17 @@ public class Coordenada {
 		}
 		return true;
 	}
-	
-	/** @toString Sirve para convertir los atributos a una cadena con el formato deseado. */
+	/**
+	 * Metodo que sirve para convertir los atributos a una cadena con el formato deseado.
+	 */
 	@Override
 	public String toString() {
 		return "(" + x + "," + y + ")";
 	}
 	/**
-	 * @Parametros Coordenada(otra).
-	 * @Función Crear una nueva coordenada a partir de la suma de otras dos coordenadas.
+	 * Metodo que hace la suma de las coordenadas y devuelve el objeto sumado.
+	 * @param otra
+	 * @return nueva coordenada.
 	 */
 	public Coordenada suma(Coordenada otra)
 	{
