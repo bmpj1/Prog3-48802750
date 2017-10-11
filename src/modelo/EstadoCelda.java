@@ -1,11 +1,7 @@
 package modelo;
 /**
- * 
- * @author Brian Mathias, Pesci Juliani
- *
- */
-/**
  * Clase encargada de enumerar el estado de una celda y asignarle un string.
+ * @author Brian Mathias, Pesci Juliani
  *
  */
 public enum EstadoCelda { VIVA("*"), MUERTA(" ");

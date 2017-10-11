@@ -1,12 +1,11 @@
 package modelo;
-/**
- * 
- * @author Brian Mathias, Pesci Juliani
- */
+
 import java.util.ArrayList;
 import java.util.Iterator;
+
 /**
  * Clase principal del programa que se encarga de enlazar una regla con un tablero y muchos patrones.
+ * @author Brian Mathias, Pesci Juliani
  */
 public class Juego {
 	/**
@@ -23,8 +22,8 @@ public class Juego {
 	private ReglaConway regla;
 	/**
 	 * Constructor que inicializa los atributos tablero y regla.
-	 * @param tablero donde se desarrollara el juego de la vida.
-	 * @param regla que se encargará de actualizar las celdas del juego.
+	 * @param tablero Tablero donde se desarrollara el juego de la vida.
+	 * @param regla Regla que se encargará de actualizar las celdas del juego.
 	 */
 	public Juego(Tablero tablero, ReglaConway regla) {
 		this.tablero = tablero;
@@ -33,8 +32,8 @@ public class Juego {
 	}
 	/**
 	 * Metodo publico que se encarga de intentar cargar un patron en el tablero a partir de una celda inicial, en caso de fallo imprime un error.
-	 * @param p es el patron a cargar.
-	 * @param posicionInicial indica la celda a partir de cual cargar el patron.
+	 * @param p Es el patron a cargar.
+	 * @param posicionInicial Indica la celda a partir de cual cargar el patron.
 	 */
 	public void cargaPatron(Patron p, Coordenada posicionInicial) {
 		if(tablero.cargaPatron(p, posicionInicial)==true) {
@@ -57,14 +56,14 @@ public class Juego {
 	}
 	/**
 	 * Metodo publico que devuelve el tablero.
-	 * @return Devuelve la dirección de memoria del tablero.
+	 * @return Devuelve la direccion de memoria del tablero.
 	 */
 	public Tablero getTablero() {
 		return tablero;
 	}
 	/**
 	 * Metodo publico que devuelve un array con los patrones utilizados.
-	 * @return un array con los patrones usados.
+	 * @return Devuelve un array con los patrones usados.
 	 */
 	public ArrayList<Patron> getPatrones() {
 		return patronesUsados;

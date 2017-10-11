@@ -1,14 +1,10 @@
 package modelo;
-/**
- * 
- * @author Brian Mathias, Pesci Juliani
- */
-/**
- * Clase que se encarga de almacenar un patron y su nombre.
- */
 
 import java.util.Collection;
-
+/**
+ * Clase que se encarga de almacenar un patron y su nombre.
+ * @author Brian Mathias, Pesci Juliani
+ */
 public class Patron {
 	/**
 	 * Atributo privado que representa el nombre del patron.
@@ -20,8 +16,8 @@ public class Patron {
 	private Tablero tablero;
 	/**
 	 * Constructor por defecto que asigna un nombre y un tablero a un patron.
-	 * @param nombre del patron.
-	 * @param tablero que almacena la estructura.
+	 * @param nombre Nombre del patron.
+	 * @param tablero Tablero que almacena la estructura.
 	 */
 	public Patron(String nombre, Tablero tablero) {
 		this.nombre = nombre;
@@ -29,12 +25,12 @@ public class Patron {
 	}
 	/**
 	 * Metodo publico que devuelve el nombre de un patron.
-	 * @return nombre del patron.
+	 * @return Devuelve el nombre del patron.
 	 */
 	public String getNombre() { return nombre; }
 	/**
 	 * Metodo publico que obtiene el estado de una celda concreta.
-	 * @param c que representa el estado de una celda concreta.
+	 * @param c Coordenada de la cualobtendremos el estado.
 	 * @return Devuelve el estado VIVA/MUERTA de la celda.
 	 */
 	public EstadoCelda getCelda(Coordenada c) {

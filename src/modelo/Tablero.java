@@ -19,7 +19,7 @@ public class Tablero {
 	private HashMap<Coordenada,EstadoCelda> celdas;
 	/**
 	 * Constructor que asigna unas dimensiones a un tablero e inicializa sus celdas en estado MUERTA.
-	 * @param dims es el tamanyo que tendra el tablero.
+	 * @param dims Es el tamanyo que tendra el tablero.
 	 */
 	public Tablero(Coordenada dims)
 	{
@@ -32,7 +32,7 @@ public class Tablero {
 	}
 	/**
 	 * Metodo que devuelve las dimensiones de un tablero.
-	 * @return dimensiones del tablero.
+	 * @return Devuelve las dimensiones del tablero.
 	 */
 	public Coordenada getDimensiones() {
 		return dimensiones;
@@ -40,14 +40,14 @@ public class Tablero {
 	}
 	/**
 	 * Metodo que devuelve una coleccion no ordenada de las coordenadas existentes en el tablero.
-	 * @return
+	 * @return Devuelve el keyset de las celdas.
 	 */
 	public Collection<Coordenada> getPosiciones() {
 		return celdas.keySet();
 	}
 	/**
 	 * Metodo que devuelve el estado de una celda concreta, en caso de que la celda no exista imprime un mensaje de error y devuelve null.
-	 * @param c es la coordenada a evaluar.
+	 * @param c Es la coordenada a evaluar.
 	 * @return Devuelve el estado de la celda o null si la celda no existe.
 	 */
 	public EstadoCelda getCelda(Coordenada c) {
@@ -105,16 +105,16 @@ public class Tablero {
 	}
 	/**
 	 * Metodo publico que se encarga de imprimir un error.
-	 * @param c es la coordenada que dio el error.
+	 * @param c Es la coordenada que dio el error.
 	 */
 	private void muestraErrorPosicionInvalida(Coordenada c) {
 		System.out.println("Error: La celda " + c.toString() + " no existe");
 	}
 	/**
 	 * Metodo publico que se encarga de intentar cargar un patron en el tablero.
-	 * @param p es el patron a cargar.
-	 * @param a es la coordenada a partir de la cual se intenta cargar.
-	 * @return devuelve falso en caso de que no se pueda cargar y true en caso contrario.
+	 * @param p Es el patron a cargar.
+	 * @param a Es la coordenada a partir de la cual se intenta cargar.
+	 * @return Devuelve falso en caso de que no se pueda cargar y true en caso contrario.
 	 */
 	public boolean cargaPatron(Patron p, Coordenada a) {
 		Iterator<Coordenada> iterator = p.getPosiciones().iterator();
@@ -138,8 +138,8 @@ public class Tablero {
 	}
 	/**
 	 * Metodo publico que se encarga de comprobar si una coordenada existe.
-	 * @param otra es la coordenada a comprobar.
-	 * @return devuelve true en caso de que la celda existe, false en caso contrario.
+	 * @param otra Es la coordenada a comprobar.
+	 * @return Devuelve true en caso de que la celda existe, false en caso contrario.
 	 */
 	public boolean contiene(Coordenada otra) {
 		if(celdas.containsKey(otra)) { return true; }

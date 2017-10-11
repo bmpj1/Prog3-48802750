@@ -1,13 +1,7 @@
 package modelo;
 /**
- * 
+ * Clase que se encarga de crear y copiar coordenadas. 
  * @author Brian Mathias, Pesci Juliani
- *
- */
-/**
- * 
- * Clase que se encarga de crear y copiar coordenadas.
- *
  */
 public class Coordenada {
 	/**
@@ -24,8 +18,8 @@ public class Coordenada {
 	private static int NUMERO_COORDENADAS;
 	/**
 	 * Constructor base de la clase que inicializa los atributos X, Y e incrementa NUMERO_COORDENADAS.
-	 * @param x
-	 * @param y
+	 * @param x Es el valor X de la coordenada.
+	 * @param y Es el valor Y de la coordenada.
 	 */
 	public Coordenada(int x, int y) {
 		this.x = x;
@@ -33,8 +27,8 @@ public class Coordenada {
 		NUMERO_COORDENADAS++;
 	}
 	/**
-	 * Constructor de copia de coordenadas, asigna los valores de X, Y e incrementa NUMERO_COORDENADA
-	 * @param otra
+	 * Constructor de copia de coordenadas, asigna los valores de X, Y e incrementa NUMERO_COORDENADA.
+	 * @param otra Es la coordenada que queremos copiar.
 	 */
 	public Coordenada(Coordenada otra)
 	{
@@ -106,7 +100,7 @@ public class Coordenada {
 	}
 	/**
 	 * Metodo que hace la suma de las coordenadas y devuelve el objeto sumado.
-	 * @param otra
+	 * @param otra Es la coordenada a sumar.
 	 * @return nueva coordenada.
 	 */
 	public Coordenada suma(Coordenada otra)
