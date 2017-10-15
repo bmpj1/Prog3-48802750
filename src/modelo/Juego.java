@@ -39,7 +39,7 @@ public class Juego {
 		if(tablero.cargaPatron(p, posicionInicial)==true) {
 			patronesUsados.add(p);
 		} else {
-			System.out.println("Error cargando plantilla "+p.getNombre()+ " en "+posicionInicial.toString());
+			System.err.println("Error cargando plantilla "+p.getNombre()+ " en "+posicionInicial.toString());
 		}
 	}
 	/**
