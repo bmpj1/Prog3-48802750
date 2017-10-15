@@ -60,7 +60,7 @@ public class Tablero {
 	 * @param e es el estado que quiero asignar a 'c'.
 	 */
 	public void setCelda(Coordenada c, EstadoCelda e) {
-		if(celdas.containsKey(c)) { celdas.put(c,e); }
+		if(celdas.containsKey(c)) { celdas.put(new Coordenada(c), e); }
 		else { muestraErrorPosicionInvalida(c); }
 	}
 	/**
@@ -108,7 +108,7 @@ public class Tablero {
 	 * @param c Es la coordenada que dio el error.
 	 */
 	private void muestraErrorPosicionInvalida(Coordenada c) {
-		System.out.println("Error: La celda " + c.toString() + " no existe");
+		System.err.println("Error: La celda " + c.toString() + " no existe");
 	}
 	/**
 	 * Metodo publico que se encarga de intentar cargar un patron en el tablero.
@@ -117,34 +117,41 @@ public class Tablero {
 	 * @return Devuelve falso en caso de que no se pueda cargar y true en caso contrario.
 	 */
 	public boolean cargaPatron(Patron p, Coordenada a) {
-		Iterator<Coordenada> iterator = p.getPosiciones().iterator();
+
 		boolean copiar = true;
-		
-		while(iterator.hasNext() && copiar) {
-			Coordenada key = iterator.next();
-			if(this.contiene(key.suma(a)) == false) {
-				muestraErrorPosicionInvalida(key.suma(a));
-				copiar = false;
-				return copiar;
+		try {
+			Iterator<Coordenada> iterator = p.getPosiciones().iterator();
+			
+			while(iterator.hasNext() && copiar) {
+				Coordenada key = iterator.next();
+				if(this.contiene(key.suma(a)) == false) {
+					muestraErrorPosicionInvalida(key.suma(a));
+					copiar = false;
+					return copiar;
+				}
 			}
-		}
-		iterator = p.getPosiciones().iterator();
-		while(iterator.hasNext()) {
-			Coordenada key = iterator.next();
-			Coordenada keyDefensiva = new Coordenada(key);
-			celdas.put(keyDefensiva.suma(a), p.getCelda(keyDefensiva));
+			iterator = p.getPosiciones().iterator();
+			while(iterator.hasNext()) {
+				Coordenada key = iterator.next();
+				Coordenada keyDefensiva = new Coordenada(key);
+				celdas.put(keyDefensiva.suma(a), p.getCelda(keyDefensiva));
+			}
+		}catch(Exception e) { 
+			
 		}
 		return copiar;
 	}
 	/**
 	 * Metodo publico que se encarga de comprobar si una coordenada existe.
 	 * @param otra Es la coordenada a comprobar.
-	 * @return Devuelve true en caso de que la celda existe, false en caso contrario.
+	 * @return Contiene Devuelve true en caso de que la celda existe, false en caso contrario.
 	 */
 	public boolean contiene(Coordenada otra) {
-		if(celdas.containsKey(otra)) { return true; }
-		else
-			return false;
+		boolean contiene=false;
+		try {
+			if(celdas.containsKey(otra)) { contiene = true; }
+		}catch(Exception e) { }
+			return contiene;
 	}
 	/**
 	 * Metodo que devuelve el tablero en formato string.
