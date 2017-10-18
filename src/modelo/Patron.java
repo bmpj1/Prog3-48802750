@@ -3,6 +3,7 @@ package modelo;
 import java.util.Collection;
 
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
  * Clase que se encarga de almacenar un patron y su nombre.
  * @author Brian Mathias, Pesci Juliani
@@ -35,8 +36,9 @@ public class Patron {
 	 * Metodo publico que obtiene el estado de una celda concreta.
 	 * @param c Coordenada de la cualobtendremos el estado.
 	 * @return Devuelve el estado VIVA/MUERTA de la celda.
+	 * @throws ExcepcionPosicionFueraTablero 
 	 */
-	public EstadoCelda getCelda(Coordenada c) {
+	public EstadoCelda getCelda(Coordenada c) throws ExcepcionPosicionFueraTablero {
 		if(c==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		return tablero.getCelda(c);
 	}

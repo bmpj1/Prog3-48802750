@@ -1,6 +1,9 @@
 package modelo;
 
 import java.util.Iterator;
+
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
  * Clase que se encarga de definir el proximo estado de una celda al actualizar el juego. 
  * @author Brian Mathias, Pesci Juliani
@@ -21,8 +24,11 @@ public class ReglaConway {
 	 * @param tablero Tablero que esta actualmente en juego.
 	 * @param posicion Coordenada de la celda a evaluar.
 	 * @return Devuelve el proximo estado de la celda.
+	 * @throws ExcepcionPosicionFueraTablero 
 	 */
-	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) {
+	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
+		if(tablero==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
+		
 		int vecinas=0;
 		Iterator<Coordenada> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
 		while(cordVecinas.hasNext() && vecinas!=4) {

@@ -140,8 +140,10 @@ public class Tablero {
 	 * @throws ExcepcionPosicionFueraTablero 
 	 * @throws ExcepcionArgumentosIncorrectos 
 	 */
-	public void cargaPatron(Patron p, Coordenada a) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
+	public boolean cargaPatron(Patron p, Coordenada a) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
+		
 		if(p==null || a==null) { throw new ExcepcionArgumentosIncorrectos(); }
+		boolean copiar=true;
 		Iterator<Coordenada> iterator = p.getPosiciones().iterator();
 		try {
 			while(iterator.hasNext()) {
@@ -159,6 +161,7 @@ public class Tablero {
 		} catch (ExcepcionCoordenadaIncorrecta e) {
 			throw new ExcepcionEjecucion(e);
 		}
+		return copiar;
 	}
 	/**
 	 * Metodo publico que se encarga de comprobar si una coordenada existe.
@@ -188,7 +191,12 @@ public class Tablero {
 		for(int j=0; j<Y;j++) {
 			impTablero += "|";
 			for(int i=0; i<X; i++) {
-				impTablero += celdas.get(new Coordenada(i,j)).getEstado(); 
+// ***********Cuidado con esta linea****************.
+				try {
+					impTablero += celdas.get(new Coordenada(i,j)).getEstado();
+				} catch (ExcepcionCoordenadaIncorrecta e) {
+				}
+//**************************************************.
 			}
 			impTablero += "|\n";
 		}

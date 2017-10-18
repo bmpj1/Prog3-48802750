@@ -31,7 +31,7 @@ public class Coordenada {
 	 * Constructor de copia de coordenadas, asigna los valores de X, Y e incrementa NUMERO_COORDENADA.
 	 * @param otra Es la coordenada que queremos copiar.
 	 */
-	public Coordenada(Coordenada otra) throws ExcepcionCoordenadaIncorrecta {
+	public Coordenada(Coordenada otra){
 		if( otra == null) { throw new ExcepcionArgumentosIncorrectos(); }
 		this.x = otra.getX();
 		this.y = otra.getY();

@@ -1,5 +1,7 @@
 package modelo;
 
+import modelo.excepciones.*;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -26,6 +28,7 @@ public class Juego {
 	 * @param regla Regla que se encargará de actualizar las celdas del juego.
 	 */
 	public Juego(Tablero tablero, ReglaConway regla) {
+		if(tablero==null || regla==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		this.tablero = tablero;
 		this.regla = regla;
 		patronesUsados = new ArrayList<Patron>();
@@ -34,9 +37,10 @@ public class Juego {
 	 * Metodo publico que se encarga de intentar cargar un patron en el tablero a partir de una celda inicial, en caso de fallo imprime un error.
 	 * @param p Es el patron a cargar.
 	 * @param posicionInicial Indica la celda a partir de cual cargar el patron.
+	 * @throws ExcepcionPosicionFueraTablero 
 	 */
-	public void cargaPatron(Patron p, Coordenada posicionInicial) {
-		if(tablero.cargaPatron(p, posicionInicial)==true) {
+	public void cargaPatron(Patron p, Coordenada posicionInicial) throws ExcepcionPosicionFueraTablero, ExcepcionArgumentosIncorrectos {
+		if(tablero.cargaPatron(p, posicionInicial)) {
 			patronesUsados.add(p);
 		} else {
 			System.err.print("Error cargando plantilla "+p.getNombre()+ " en "+posicionInicial.toString()+"\n");
@@ -44,15 +48,20 @@ public class Juego {
 	}
 	/**
 	 * Metodo publico que actualiza el tablero. Para ello utiliza la regla y el tablero.
+	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
-	public void actualiza() {
-		Tablero t = new Tablero(tablero.getDimensiones());
-		Iterator<Coordenada> iterator = tablero.getPosiciones().iterator();
-		while(iterator.hasNext()) {
-			Coordenada key = iterator.next();
-			t.setCelda(key, regla.calculaSiguienteEstadoCelda(tablero,key));
+	public void actualiza() throws ExcepcionCoordenadaIncorrecta {
+		try {
+			Tablero t = new Tablero(tablero.getDimensiones());
+			Iterator<Coordenada> iterator = tablero.getPosiciones().iterator();
+			while(iterator.hasNext()) {
+				Coordenada key = iterator.next();
+				t.setCelda(key, regla.calculaSiguienteEstadoCelda(tablero,key));
+			}
+			tablero = t;
+		} catch(ExcepcionPosicionFueraTablero cause) {
+			throw new ExcepcionEjecucion(cause);
 		}
-		tablero = t;		
 	}
 	/**
 	 * Metodo publico que devuelve el tablero.
