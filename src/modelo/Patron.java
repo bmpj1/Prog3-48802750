@@ -1,6 +1,8 @@
 package modelo;
 
 import java.util.Collection;
+
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 /**
  * Clase que se encarga de almacenar un patron y su nombre.
  * @author Brian Mathias, Pesci Juliani
@@ -20,6 +22,7 @@ public class Patron {
 	 * @param tablero Tablero que almacena la estructura.
 	 */
 	public Patron(String nombre, Tablero tablero) {
+		if(nombre == null || tablero==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		this.nombre = nombre;
 		this.tablero = tablero;
 	}
@@ -34,6 +37,7 @@ public class Patron {
 	 * @return Devuelve el estado VIVA/MUERTA de la celda.
 	 */
 	public EstadoCelda getCelda(Coordenada c) {
+		if(c==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		return tablero.getCelda(c);
 	}
 	/**

@@ -1,4 +1,8 @@
 package modelo;
+
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
+
 /**
  * Clase que se encarga de crear y copiar coordenadas. 
  * @author Brian Mathias, Pesci Juliani
@@ -13,28 +17,24 @@ public class Coordenada {
 	 */
 	private int y;
 	/**
-	 * Atributo estatico y privado que representa el número total de coordenadas creadas.
-	 */
-	private static int NUMERO_COORDENADAS;
-	/**
 	 * Constructor base de la clase que inicializa los atributos X, Y e incrementa NUMERO_COORDENADAS.
 	 * @param x Es el valor X de la coordenada.
 	 * @param y Es el valor Y de la coordenada.
+	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
-	public Coordenada(int x, int y) {
+	public Coordenada(int x, int y) throws ExcepcionCoordenadaIncorrecta {
+		if( (x<0) || (y<0) ) { throw new ExcepcionCoordenadaIncorrecta(); }
 		this.x = x;
 		this.y = y;
-		NUMERO_COORDENADAS++;
 	}
 	/**
 	 * Constructor de copia de coordenadas, asigna los valores de X, Y e incrementa NUMERO_COORDENADA.
 	 * @param otra Es la coordenada que queremos copiar.
 	 */
-	public Coordenada(Coordenada otra)
-	{
+	public Coordenada(Coordenada otra) throws ExcepcionCoordenadaIncorrecta {
+		if( otra == null) { throw new ExcepcionArgumentosIncorrectos(); }
 		this.x = otra.getX();
 		this.y = otra.getY();
-		NUMERO_COORDENADAS++;
 	}
 	/**
 	 * Metodo que devuelve el valor X de la coordenada.
@@ -49,13 +49,6 @@ public class Coordenada {
 	 */
 	public int getY() {
 		return y;
-	}
-	/**
-	 * Metodo que devuelve el numero de coordenadas creadas.
-	 * @return NUMERO_COORDENADAS
-	 */
-	public static int getNumeroCoordenadas() {
-		return NUMERO_COORDENADAS;
 	}
 	/**
 	 * Metodo que permite comparar si dos coordenadas son iguales.
@@ -102,9 +95,11 @@ public class Coordenada {
 	 * Metodo que hace la suma de las coordenadas y devuelve el objeto sumado.
 	 * @param otra Es la coordenada a sumar.
 	 * @return nueva coordenada.
+	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
-	public Coordenada suma(Coordenada otra)
+	public Coordenada suma(Coordenada otra) throws ExcepcionCoordenadaIncorrecta, ExcepcionArgumentosIncorrectos
 	{
+		if(otra == null) { throw new ExcepcionArgumentosIncorrectos(); }
 		return new Coordenada(x+otra.getX(),y+otra.getY());
 	}
 }
