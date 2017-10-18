@@ -93,33 +93,42 @@ public class Tablero {
 			Coordenada otra;
 			int i=(c.getX()-1);
 			int j=(c.getY()-1);
+			
 			do {
-				otra = new Coordenada(i,j);
-				if(celdas.containsKey(otra))
-					cordVecinas.add(otra);
+				if(i>-1 && j>-1) {
+					otra = new Coordenada(i,j);
+					if(celdas.containsKey(otra))
+						cordVecinas.add(otra);
+				}
 				j++;
 			} while(j<=(c.getY()+1));
 			j--;
 			i++;
 			do {
-				otra = new Coordenada(i,j);
-				if(celdas.containsKey(otra))
-					cordVecinas.add(otra);
+				if(i>-1 && j>-1) {
+					otra = new Coordenada(i,j);
+					if(celdas.containsKey(otra))
+						cordVecinas.add(otra);
+				}
 				i++;
 			}while(i<=(c.getX()+1));
 			i--;
 			j--;
 			do {
-				otra = new Coordenada(i,j);
-				if(celdas.containsKey(otra))
-					cordVecinas.add(otra);
+				if(i>-1 && j>-1) {
+					otra = new Coordenada(i,j);
+					if(celdas.containsKey(otra))
+						cordVecinas.add(otra);
+				}
 				j--;
 			}while(j>=(c.getY()-1));
 			j++;
 			i--;
-			otra = new Coordenada(i,j);
-			if(celdas.containsKey(otra))
-				cordVecinas.add(otra);
+			if(i>-1 && j>-1) {
+				otra = new Coordenada(i,j);
+				if(celdas.containsKey(otra))
+					cordVecinas.add(otra);
+			}
 		} catch(ExcepcionCoordenadaIncorrecta e) {
 			throw new ExcepcionEjecucion(e);
 		}
