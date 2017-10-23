@@ -8,7 +8,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * Clase que se encarga de definir el proximo estado de una celda al actualizar el juego. 
  * @author Brian Mathias, Pesci Juliani
  */
-public class ReglaConway {
+public class ReglaConway extends Regla {
 	/**
 	 * Atributo privado que almacenara el proximo estado(VIVA/MUERTA) de una celda.
 	 */

@@ -13,33 +13,27 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * Clase que representa la matriz de celdas usadas en el juego de la vida.
  * @author Brian Mathias, Pesci Juliani
  */
-public class Tablero {
+public abstract class Tablero {
 	/**
 	 * Atributo privado que define las dimensiones de un tablero.
 	 */
-	private Coordenada dimensiones;
+	protected Coordenada dimensiones;
 	/**
 	 * Atributo privado que se encarga de enlazar pares <Coordenada,Estado>
 	 */
-	private HashMap<Coordenada,EstadoCelda> celdas;
+	protected HashMap<Coordenada,EstadoCelda> celdas;
 	/**
 	 * Constructor que asigna unas dimensiones a un tablero e inicializa sus celdas en estado MUERTA.
 	 * @param dims Es el tamanyo que tendra el tablero.
 	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
-	public Tablero(Coordenada dims) throws ExcepcionCoordenadaIncorrecta
+	public Tablero(Coordenada dimensiones) throws ExcepcionCoordenadaIncorrecta
 	{
-		dimensiones = new Coordenada(dims);
+		//dimensiones = new Coordenada(dims); no podemos por que Coordenada es una clase abstracta.
+		if(dimensiones==null) { throw new ExcepcionArgumentosIncorrectos();}
+		this.dimensiones = dimensiones;
 		celdas = new HashMap<Coordenada,EstadoCelda>();
-		for(int j=0;j<dims.getY();j++) {
-			for(int i=0;i<dims.getX();i++) {
-				try {
-					celdas.put(new Coordenada(i,j), EstadoCelda.MUERTA);
-				} catch(ExcepcionCoordenadaIncorrecta e) {
-					throw new ExcepcionEjecucion(e);
-				}
-			}
- 		}
+		
 	}
 	/**
 	 * Metodo que devuelve las dimensiones de un tablero.
@@ -85,55 +79,7 @@ public class Tablero {
 	 * @return Devuelve un array que contiene entre 3 y 8 coordenadas vecinas a 'c'.
 	 * @throws ExcepcionPosicionFueraTablero 
 	 */
-	public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada c) throws ExcepcionPosicionFueraTablero {
-		ArrayList<Coordenada> cordVecinas = new ArrayList<Coordenada>();
-		if(c==null) { throw new ExcepcionArgumentosIncorrectos(); }
-		if(celdas.containsKey(c)==false) { throw new ExcepcionPosicionFueraTablero(dimensiones, c); }
-		try {
-			Coordenada otra;
-			int i=(c.getX()-1);
-			int j=(c.getY()-1);
-			
-			do {
-				if(i>-1 && j>-1) {
-					otra = new Coordenada(i,j);
-					if(celdas.containsKey(otra))
-						cordVecinas.add(otra);
-				}
-				j++;
-			} while(j<=(c.getY()+1));
-			j--;
-			i++;
-			do {
-				if(i>-1 && j>-1) {
-					otra = new Coordenada(i,j);
-					if(celdas.containsKey(otra))
-						cordVecinas.add(otra);
-				}
-				i++;
-			}while(i<=(c.getX()+1));
-			i--;
-			j--;
-			do {
-				if(i>-1 && j>-1) {
-					otra = new Coordenada(i,j);
-					if(celdas.containsKey(otra))
-						cordVecinas.add(otra);
-				}
-				j--;
-			}while(j>=(c.getY()-1));
-			j++;
-			i--;
-			if(i>-1 && j>-1) {
-				otra = new Coordenada(i,j);
-				if(celdas.containsKey(otra))
-					cordVecinas.add(otra);
-			}
-		} catch(ExcepcionCoordenadaIncorrecta e) {
-			throw new ExcepcionEjecucion(e);
-		}
-		return cordVecinas;				
-	}
+	public abstract ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada c) throws ExcepcionPosicionFueraTablero;
 	/**
 	 * Metodo publico que se encarga de imprimir un error.
 	 * @param c Es la coordenada que dio el error.
@@ -183,40 +129,7 @@ public class Tablero {
 		if(celdas.containsKey(otra)) { contiene = true; }
 		return contiene;
 	}
-	/**
-	 * Metodo que devuelve el tablero en formato string.
-	 */
-	public String toString() {
-		int X = dimensiones.getX();
-		int Y = dimensiones.getY();
-		String impTablero = new String("");
-		
-		for(int i=-1;i <= X; i++) {
-			if(i==-1 || i==X) { impTablero += "+"; }
-			else { impTablero += "-"; }
-		}
-		impTablero += "\n";
-		
-		for(int j=0; j<Y;j++) {
-			impTablero += "|";
-			for(int i=0; i<X; i++) {
-// ***********Cuidado con esta linea****************.
-				try {
-					impTablero += celdas.get(new Coordenada(i,j)).getEstado();
-				} catch (ExcepcionCoordenadaIncorrecta e) {
-				}
-//**************************************************.
-			}
-			impTablero += "|\n";
-		}
-		
-		for(int i=-1;i <= X; i++) {
-			if(i==-1 || i==X) { impTablero += "+"; }
-			else { impTablero += "-"; }
-		}
-		impTablero += "\n";
-		return impTablero;
- 	}
+
  }
 /*REFERENCIAS:
 *	HashMap: https://www.youtube.com/watch?v=TX5Sucd1CRA

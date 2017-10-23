@@ -1,7 +1,8 @@
 package modelo;
 
-public class Regla {
-	public EstadoCelda calculaSiguienteEstadoCelda(Coordenada c, Tablero t) {
-		return null;
-	}
+import modelo.excepciones.ExcepcionPosicionFueraTablero;
+
+public abstract class Regla {
+	public Regla() { }
+	public abstract EstadoCelda calculaSiguienteEstadoCelda(Tablero t, Coordenada c) throws ExcepcionPosicionFueraTablero ;
 }
