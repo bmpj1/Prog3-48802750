@@ -8,7 +8,7 @@ public class ExcepcionCoordenada2DIncorrecta extends ExcepcionCoordenadaIncorrec
 		this.y=y;
 	}
 	public String getMessage() {
-		return ("mirar error");
+		return ("Error: Coordenada2D("+x+","+y+") incorrecta.\n");
 	}
 
 }

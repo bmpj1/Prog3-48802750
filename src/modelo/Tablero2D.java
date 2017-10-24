@@ -7,6 +7,7 @@ import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 public abstract class Tablero2D extends Tablero {
+	
 	public Tablero2D(int ancho, int alto) throws ExcepcionCoordenadaIncorrecta {
 		
 		super(new Coordenada2D(ancho,alto));

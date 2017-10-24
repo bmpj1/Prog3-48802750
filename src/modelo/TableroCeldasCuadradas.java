@@ -77,8 +77,9 @@ public class TableroCeldasCuadradas extends Tablero2D {
 	 * Metodo que devuelve el tablero en formato string.
 	 */
 	public String toString() {
-		int X = dimensiones.getX();
-		int Y = dimensiones.getY();
+		Coordenada2D dims = (Coordenada2D) dimensiones;
+		int X = dims.getX();
+		int Y = dims.getY();
 		String impTablero = new String("");
 		
 		for(int i=-1;i <= X; i++) {
@@ -92,7 +93,7 @@ public class TableroCeldasCuadradas extends Tablero2D {
 			for(int i=0; i<X; i++) {
 // ***********Cuidado con esta linea****************.
 				try {
-					impTablero += celdas.get(new Coordenada(i,j)).getEstado();
+					impTablero += celdas.get(new Coordenada2D(i,j)).getEstado();
 				} catch (ExcepcionCoordenadaIncorrecta e) {
 				}
 //**************************************************.

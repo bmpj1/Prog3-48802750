@@ -21,13 +21,13 @@ public class Juego {
 	/**
 	 * Atributo privado que asocia un juego con una regla.
 	 */
-	private ReglaConway regla;
+	private Regla regla;
 	/**
 	 * Constructor que inicializa los atributos tablero y regla.
 	 * @param tablero Tablero donde se desarrollara el juego de la vida.
 	 * @param regla Regla que se encargará de actualizar las celdas del juego.
 	 */
-	public Juego(Tablero tablero, ReglaConway regla) {
+	public Juego(Tablero tablero, Regla regla) {
 		if(tablero==null || regla==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		this.tablero = tablero;
 		this.regla = regla;

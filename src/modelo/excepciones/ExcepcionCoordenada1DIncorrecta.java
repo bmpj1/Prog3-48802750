@@ -6,7 +6,7 @@ public class ExcepcionCoordenada1DIncorrecta extends ExcepcionCoordenadaIncorrec
 		this.x = x;
 	}
 	public String getMessage() {
-		return ("Error: Coordenada "+x+" incorrecta");
+		return ("Error: Coordenada1D("+x+") incorrecta.\n");
 	}
 	public int getX() {
 		return x;

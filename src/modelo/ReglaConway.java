@@ -32,7 +32,7 @@ public class ReglaConway extends Regla {
 		int vecinas=0;
 		Iterator<Coordenada> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
 		while(cordVecinas.hasNext() && vecinas!=4) {
-			Coordenada key = cordVecinas.next();
+			Coordenada2D key = (Coordenada2D) cordVecinas.next();
 			if(tablero.getCelda(key)==EstadoCelda.VIVA) {
 				vecinas++;
 			}
