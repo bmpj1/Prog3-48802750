@@ -81,13 +81,6 @@ public abstract class Tablero {
 	 */
 	public abstract ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada c) throws ExcepcionPosicionFueraTablero;
 	/**
-	 * Metodo publico que se encarga de imprimir un error.
-	 * @param c Es la coordenada que dio el error.
-	 */
-	private void muestraErrorPosicionInvalida(Coordenada c) {
-		System.err.print("Error: La celda " + c.toString() + " no existe\n");
-	}
-	/**
 	 * Metodo publico que se encarga de intentar cargar un patron en el tablero.
 	 * @param p Es el patron a cargar.
 	 * @param a Es la coordenada a partir de la cual se intenta cargar.

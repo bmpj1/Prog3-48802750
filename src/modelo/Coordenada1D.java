@@ -15,7 +15,7 @@ public class Coordenada1D extends Coordenada {
 		this.x = c.x;
 	}
 	public String toString() {
-		return null;
+		return "("+x+")";
 	}
 	public int getX() { return x; }
 	

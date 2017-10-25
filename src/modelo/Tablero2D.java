@@ -1,10 +1,7 @@
 package modelo;
 
-import java.util.ArrayList;
-
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
-import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 public abstract class Tablero2D extends Tablero {
 	

@@ -1,7 +1,5 @@
 package modelo.excepciones;
 
-import com.sun.rmi.rmid.ExecOptionPermission;
-
 public class ExcepcionEjecucion extends RuntimeException {
 	public ExcepcionEjecucion(String message) {
 		super(message);
