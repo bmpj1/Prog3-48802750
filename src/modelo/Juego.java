@@ -3,6 +3,7 @@ package modelo;
 import modelo.excepciones.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 /**
@@ -52,13 +53,17 @@ public class Juego {
 	 */
 	public void actualiza() throws ExcepcionCoordenadaIncorrecta {
 		try {
-			Tablero t = new Tablero(tablero.getDimensiones());
+			HashMap<Coordenada,EstadoCelda> t = new HashMap<Coordenada, EstadoCelda>(); 
 			Iterator<Coordenada> iterator = tablero.getPosiciones().iterator();
 			while(iterator.hasNext()) {
 				Coordenada key = iterator.next();
-				t.setCelda(key, regla.calculaSiguienteEstadoCelda(tablero,key));
+				t.put(key, regla.calculaSiguienteEstadoCelda(tablero,key));
 			}
-			tablero = t;
+			Iterator<Coordenada> iter = t.keySet().iterator();
+			while(iter.hasNext()) {
+				Coordenada key = iter.next();
+				tablero.setCelda(key, t.get(key));
+			}
 		} catch(ExcepcionPosicionFueraTablero cause) {
 			throw new ExcepcionEjecucion(cause);
 		}

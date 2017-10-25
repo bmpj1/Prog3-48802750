@@ -10,7 +10,7 @@ public class ExcepcionPosicionFueraTablero extends Exception {
 		this.coordenada = coordenada;
 	}
 	public String getMessage() {
-		return ("mirar mensaje");
+		return ("Error: La celda "+coordenada.toString()+" no está dentro de las dimensiones "+dimensiones.toString()+".\n");
 	}
 	public Coordenada getDimensiones() {
 		return dimensiones;

@@ -29,7 +29,8 @@ public class Tablero1D extends Tablero {
 		Coordenada1D c = (Coordenada1D) posicion;
 //****************¿hay que hacer este try~catch igual que en Coordenada2d?******
 		try {
-			if(celdas.containsKey(new Coordenada1D(c.getX()-1))) { cordVecinas.add(new Coordenada1D(c.getX()-1)); }
+			
+			if((c.getX()-1)>-1 && celdas.containsKey(new Coordenada1D(c.getX()-1))) { cordVecinas.add(new Coordenada1D(c.getX()-1)); }
 			if(celdas.containsKey(new Coordenada1D(c.getX()+1))) { cordVecinas.add(new Coordenada1D(c.getX()+1)); }
 		} catch(ExcepcionCoordenadaIncorrecta e) {
 			throw new ExcepcionEjecucion(e);

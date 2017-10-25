@@ -27,7 +27,7 @@ public abstract class Tablero {
 	 * @param dims Es el tamanyo que tendra el tablero.
 	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
-	public Tablero(Coordenada dimensiones) throws ExcepcionCoordenadaIncorrecta
+	protected Tablero(Coordenada dimensiones) throws ExcepcionCoordenadaIncorrecta
 	{
 		//dimensiones = new Coordenada(dims); no podemos por que Coordenada es una clase abstracta.
 		if(dimensiones==null) { throw new ExcepcionArgumentosIncorrectos();}
@@ -95,23 +95,29 @@ public abstract class Tablero {
 	 * @throws ExcepcionPosicionFueraTablero 
 	 * @throws ExcepcionArgumentosIncorrectos 
 	 */
-	public boolean cargaPatron(Patron p, Coordenada a) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
+	public boolean cargaPatron(Patron p, Coordenada posicion) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
 		
-		if(p==null || a==null) { throw new ExcepcionArgumentosIncorrectos(); }
+		if(p==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		boolean copiar=true;
 		Iterator<Coordenada> iterator = p.getPosiciones().iterator();
 		try {
 			while(iterator.hasNext()) {
 				Coordenada key = iterator.next();
-				if(this.contiene(key.suma(a)) == false) {
-					throw new ExcepcionPosicionFueraTablero(dimensiones, key.suma(a));
+				if(this.contiene(key.suma(posicion)) == false) {
+					throw new ExcepcionPosicionFueraTablero(dimensiones, key.suma(posicion));
 				}
 			}
 			iterator = p.getPosiciones().iterator();
 			while(iterator.hasNext()) {
 				Coordenada key = iterator.next();
-				Coordenada keyDefensiva = new Coordenada(key);
-				celdas.put(keyDefensiva.suma(a), p.getCelda(keyDefensiva));
+				if(posicion instanceof Coordenada2D) {
+					Coordenada2D keyDefensiva = (Coordenada2D) key;
+					celdas.put(keyDefensiva.suma(posicion), p.getCelda(keyDefensiva));
+				} else if(posicion instanceof Coordenada1D) {
+					Coordenada1D keyDefensiva = (Coordenada1D) key;
+					celdas.put(keyDefensiva.suma(posicion), p.getCelda(keyDefensiva));					
+				}
+				
 			}
 		} catch (ExcepcionCoordenadaIncorrecta e) {
 			throw new ExcepcionEjecucion(e);
