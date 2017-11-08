@@ -40,18 +40,15 @@ public class Juego {
 	 * @param posicionInicial Indica la celda a partir de cual cargar el patron.
 	 * @throws ExcepcionPosicionFueraTablero 
 	 */
-	public void cargaPatron(Patron p, Coordenada posicionInicial) throws ExcepcionPosicionFueraTablero, ExcepcionArgumentosIncorrectos {
-		if(tablero.cargaPatron(p, posicionInicial)) {
-			patronesUsados.add(p);
-		} else {
-			System.err.print("Error cargando plantilla "+p.getNombre()+ " en "+posicionInicial.toString()+"\n");
-		}
+	public void cargaPatron(Patron p, Coordenada posicionInicial) throws ExcepcionPosicionFueraTablero{
+		tablero.cargaPatron(p, posicionInicial);
+		patronesUsados.add(p);
 	}
 	/**
 	 * Metodo publico que actualiza el tablero. Para ello utiliza la regla y el tablero.
 	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
-	public void actualiza() throws ExcepcionCoordenadaIncorrecta {
+	public void actualiza() {
 		try {
 			HashMap<Coordenada,EstadoCelda> t = new HashMap<Coordenada, EstadoCelda>(); 
 			Iterator<Coordenada> iterator = tablero.getPosiciones().iterator();

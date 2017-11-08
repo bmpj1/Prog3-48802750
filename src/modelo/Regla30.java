@@ -39,20 +39,7 @@ public class Regla30 extends Regla {
 		}
 		// Si hay 1 vecina.
 		else if(i==1) {
-			return EstadoCelda.MUERTA;/*
-			Coordenada1D key = (Coordenada1D) cordVecinas.next();
-			// Si (x-1) existe
-			if(key.getX()<pos.getX()) { 
-				vecinas += tablero.getCelda(key).getEstado();
-				vecinas += tablero.getCelda(pos).getEstado(); 
-				vecinas += " ";
-			}
-			// Si (x+1) existe
-			if(key.getX()>pos.getX()) {
-				vecinas += " ";
-				vecinas += tablero.getCelda(pos).getEstado(); 
-				vecinas += tablero.getCelda(key).getEstado();
-			}*/
+			return EstadoCelda.MUERTA;
 		}
 		
 		switch(vecinas)

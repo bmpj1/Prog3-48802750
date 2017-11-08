@@ -51,6 +51,7 @@ public class Tablero1D extends Tablero {
 			try {
 				impTablero += celdas.get(new Coordenada1D(j)).getEstado();
 			} catch (ExcepcionCoordenadaIncorrecta e) {
+				throw new ExcepcionEjecucion(e);
 			}
 //**************************************************.
 		}

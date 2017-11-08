@@ -42,11 +42,12 @@ public class Coordenada1D extends Coordenada {
 	@Override
 	public Coordenada1D suma(Coordenada c) throws ExcepcionCoordenadaIncorrecta {
 		if(c==null) { throw new ExcepcionArgumentosIncorrectos(); }
-		if(!(c instanceof Coordenada1D)) {
-			/*throw excepcion->la coordenada c no es una instancia de Coordenada1D*/
+		Coordenada1D nuevaCoordenada = null;
+		if((c instanceof Coordenada1D)) {
+			Coordenada1D other = (Coordenada1D) c;
+			nuevaCoordenada = new Coordenada1D(x+other.getX());
 		}
-		Coordenada1D other = (Coordenada1D) c;
-		return new Coordenada1D(x+other.getX());
+		return (nuevaCoordenada);
 	}
 
 }

@@ -101,10 +101,11 @@ public class Coordenada2D extends Coordenada{
 	public Coordenada2D suma(Coordenada otra) throws ExcepcionCoordenadaIncorrecta
 	{
 		if(otra == null) { throw new ExcepcionArgumentosIncorrectos(); }
-		if (!(otra instanceof Coordenada2D)) {
-			/*throw Excepcion -> otra no es una instancia de Coordenada2D;*/
+		Coordenada2D nuevaCoord = null;
+		if (otra instanceof Coordenada2D) {
+			Coordenada2D other = (Coordenada2D) otra;
+			nuevaCoord = new Coordenada2D(x+other.getX(),y+other.getY());
 		}
-		Coordenada2D other = (Coordenada2D) otra;
-		return new Coordenada2D(x+other.getX(),y+other.getY());
+		return (nuevaCoord);
 	}
 }

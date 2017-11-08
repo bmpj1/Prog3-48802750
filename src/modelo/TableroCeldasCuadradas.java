@@ -95,6 +95,7 @@ public class TableroCeldasCuadradas extends Tablero2D {
 				try {
 					impTablero += celdas.get(new Coordenada2D(i,j)).getEstado();
 				} catch (ExcepcionCoordenadaIncorrecta e) {
+					throw new ExcepcionEjecucion(e);
 				}
 //**************************************************.
 			}

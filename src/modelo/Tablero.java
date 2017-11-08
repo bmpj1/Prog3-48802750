@@ -56,10 +56,10 @@ public abstract class Tablero {
 	 * @return Devuelve el estado de la celda o null si la celda no existe.
 	 * @throws ExcepcionPosicionFueraTablero 
 	 */
-	public EstadoCelda getCelda(Coordenada c) throws ExcepcionPosicionFueraTablero {
-		if(c==null) { throw new ExcepcionArgumentosIncorrectos(); }
-		if(celdas.containsKey(c)==false) { throw new ExcepcionPosicionFueraTablero(dimensiones, c); }
-		return celdas.get(c);
+	public EstadoCelda getCelda(Coordenada posicion) throws ExcepcionPosicionFueraTablero {
+		if(posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
+		if(celdas.containsKey(posicion)==false) { throw new ExcepcionPosicionFueraTablero(dimensiones, posicion); }
+		return celdas.get(posicion);
 	}
 	/**
 	 * Metodo que asigna un estado a una celda que exista en el HashMap.
@@ -68,10 +68,10 @@ public abstract class Tablero {
 	 * @throws ExcepcionPosicionFueraTablero 
 	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
-	public void setCelda(Coordenada c, EstadoCelda e) throws ExcepcionPosicionFueraTablero {
-		if(c==null || e==null) { throw new ExcepcionArgumentosIncorrectos(); }
-		if(celdas.containsKey(c)) { celdas.put(c, e); }
-		else { throw new ExcepcionPosicionFueraTablero(dimensiones, c); }
+	public void setCelda(Coordenada posicion, EstadoCelda e) throws ExcepcionPosicionFueraTablero {
+		if(posicion==null || e==null) { throw new ExcepcionArgumentosIncorrectos(); }
+		if(celdas.containsKey(posicion)) { celdas.put(posicion, e); }
+		else { throw new ExcepcionPosicionFueraTablero(dimensiones, posicion); }
 	}
 	/**
 	 * Metodo que devuelve un array de las celdas vecinas en sentido antihorario.
@@ -88,10 +88,9 @@ public abstract class Tablero {
 	 * @throws ExcepcionPosicionFueraTablero 
 	 * @throws ExcepcionArgumentosIncorrectos 
 	 */
-	public boolean cargaPatron(Patron p, Coordenada posicion) throws ExcepcionArgumentosIncorrectos, ExcepcionPosicionFueraTablero {
+	public void cargaPatron(Patron p, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
 		
 		if(p==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
-		boolean copiar=true;
 		Iterator<Coordenada> iterator = p.getPosiciones().iterator();
 		try {
 			while(iterator.hasNext()) {
@@ -115,17 +114,16 @@ public abstract class Tablero {
 		} catch (ExcepcionCoordenadaIncorrecta e) {
 			throw new ExcepcionEjecucion(e);
 		}
-		return copiar;
 	}
 	/**
 	 * Metodo publico que se encarga de comprobar si una coordenada existe.
 	 * @param otra Es la coordenada a comprobar.
 	 * @return Contiene Devuelve true en caso de que la celda existe, false en caso contrario.
 	 */
-	public boolean contiene(Coordenada otra) {
-		if(otra==null) { throw new ExcepcionArgumentosIncorrectos(); }
+	public boolean contiene(Coordenada posicion) {
+		if(posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		boolean contiene=false;
-		if(celdas.containsKey(otra)) { contiene = true; }
+		if(celdas.containsKey(posicion)) { contiene = true; }
 		return contiene;
 	}
 
