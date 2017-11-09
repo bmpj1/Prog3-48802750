@@ -8,17 +8,20 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
 public class Regla30 extends Regla {
 	
 	public Regla30() {}
-	
-	//current pattern 			111 110 101 100 011 010 001 000
-	//new state for center cell  0 	 0 	 0 	 1 	 1 	 1 	 1   0
+	/**
+	 * Implementacion del Metodo abstracto de la clase regla que se va a encargar de calcular el nuevo estado de una Coordenada1D del tablero1D.
+	 * @param t Es el Tablero1D a analizar.
+	 * @param c Es la posicion a analizar.
+	 * @return EstadoCelda Es el próximo estado de la celda.
+	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la posición está fuera del tablero.
+	 */
+	@Override
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
 		if(tablero==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
-//**** ¿Hay que comprobar que posicion sea una instancia de Coordenada1D?
+/* ¿Hay que comprobar que posicion sea una instancia de Coordenada1D? */
 		Coordenada1D pos = (Coordenada1D) posicion;
 		String vecinas="";
 		Iterator<Coordenada> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
-		
-		// Contar el número de celdas vecinas.
 		int i = 0;
 		while(cordVecinas.hasNext()) {
 		    i++;
@@ -26,20 +29,16 @@ public class Regla30 extends Regla {
 		}
 		
 		cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
-		// Si hay 2 vecinas
+		/* Si hay 2 vecinas */
 		if(i==2) {
-			// (x-1)
+			/* (x-1) */
 			Coordenada1D key = (Coordenada1D) cordVecinas.next();
 			vecinas += tablero.getCelda(key).getEstado();
-			// (x);
+			/* (x) */
 			vecinas += tablero.getCelda(pos).getEstado();
-			// (x+1)
+			/* (x+1) */
 			key = (Coordenada1D) cordVecinas.next();
 			vecinas += tablero.getCelda(key).getEstado();
-		}
-		// Si hay 1 vecina.
-		else if(i==1) {
-			return EstadoCelda.MUERTA;
 		}
 		
 		switch(vecinas)
@@ -61,6 +60,8 @@ public class Regla30 extends Regla {
 			case "   ":
 				return (EstadoCelda.MUERTA);
 		}
-		return null;
+
+		/* Si hay 1 vecina. */
+		return EstadoCelda.MUERTA;
 	}
 }

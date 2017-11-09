@@ -35,10 +35,10 @@ public class Juego {
 		patronesUsados = new ArrayList<Patron>();
 	}
 	/**
-	 * Metodo publico que se encarga de intentar cargar un patron en el tablero a partir de una celda inicial, en caso de fallo imprime un error.
+	 * Metodo publico que se encarga de intentar cargar un patron en el tablero a partir de una celda inicial, en caso de fallo lanza una excepcion.
 	 * @param p Es el patron a cargar.
 	 * @param posicionInicial Indica la celda a partir de cual cargar el patron.
-	 * @throws ExcepcionPosicionFueraTablero 
+	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando el patron no entra en el tablero o la posicion inicial no es valida. 
 	 */
 	public void cargaPatron(Patron p, Coordenada posicionInicial) throws ExcepcionPosicionFueraTablero{
 		tablero.cargaPatron(p, posicionInicial);
@@ -46,7 +46,6 @@ public class Juego {
 	}
 	/**
 	 * Metodo publico que actualiza el tablero. Para ello utiliza la regla y el tablero.
-	 * @throws ExcepcionCoordenadaIncorrecta 
 	 */
 	public void actualiza() {
 		try {

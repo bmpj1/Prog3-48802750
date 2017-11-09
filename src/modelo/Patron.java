@@ -36,7 +36,7 @@ public class Patron {
 	 * Metodo publico que obtiene el estado de una celda concreta.
 	 * @param c Coordenada de la cualobtendremos el estado.
 	 * @return Devuelve el estado VIVA/MUERTA de la celda.
-	 * @throws ExcepcionPosicionFueraTablero 
+	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la Coordenada que se quiere obtener no es valida.
 	 */
 	public EstadoCelda getCelda(Coordenada c) throws ExcepcionPosicionFueraTablero {
 		if(c==null) { throw new ExcepcionArgumentosIncorrectos(); }

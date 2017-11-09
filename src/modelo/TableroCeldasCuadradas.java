@@ -6,15 +6,23 @@ import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
-
+/**
+ * Clase que hereda de la clase abstracta Tablero2D. Representa la matriz de celdas bidimensionales usadas en el juego de la vida.
+ * @author Brian Mathias, Pesci Juliani
+ */
 public class TableroCeldasCuadradas extends Tablero2D {
-
+	/**
+	 * Constructor que crea un tablero de 2 dimensiones delegando la funcionalidad a la superClase.
+	 * @param ancho Anchura del tablero.
+	 * @param alto Altura del tablero.
+	 * @throws ExcepcionCoordenadaIncorrecta Lanza la excepcion cuando alguno de sus parametros es negativo.
+	 */
 	public TableroCeldasCuadradas(int ancho, int alto) throws ExcepcionCoordenadaIncorrecta {
 		super(ancho, alto);
 	}
 	/**
-	 * Metodo que devuelve un array de las celdas vecinas en sentido antihorario.
-	 * @param c es la coordenada central, a partir de la cual quiero mirar.
+	 * Implementacion del Metodo abstracto que devuelve un array de las celdas vecinas en sentido antihorario.
+	 * @param c Es la coordenada central, a partir de la cual quiero mirar.
 	 * @return Devuelve un array que contiene entre 3 y 8 coordenadas vecinas a 'c'.
 	 * @throws ExcepcionPosicionFueraTablero 
 	 */

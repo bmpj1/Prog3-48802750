@@ -5,7 +5,7 @@ import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 /**
- * Clase que se encarga de crear y copiar coordenadas. 
+ * Clase que hereda de la clase abstracta Coordenada. Permite crear Coordenadas de dos dimensiones. 
  * @author Brian Mathias, Pesci Juliani
  */
 public class Coordenada2D extends Coordenada{
@@ -18,10 +18,10 @@ public class Coordenada2D extends Coordenada{
 	 */
 	private int y;
 	/**
-	 * Constructor base de la clase que inicializa los atributos X, Y e incrementa NUMERO_COORDENADAS.
+	 * Constructor base de la clase que inicializa los atributos X, Y.
 	 * @param x Es el valor X de la coordenada.
 	 * @param y Es el valor Y de la coordenada.
-	 * @throws ExcepcionCoordenadaIncorrecta 
+	 * @throws ExcepcionCoordenadaIncorrecta Lanza un error cuando la coordenada no es válida.
 	 */
 	public Coordenada2D(int x, int y) throws ExcepcionCoordenadaIncorrecta {
 		if( (x<0) || (y<0) ) { throw new ExcepcionCoordenada2DIncorrecta(x, y); }
@@ -29,7 +29,7 @@ public class Coordenada2D extends Coordenada{
 		this.y = y;
 	}
 	/**
-	 * Constructor de copia de coordenadas, asigna los valores de X, Y e incrementa NUMERO_COORDENADA.
+	 * Constructor de copia de coordenadas, asigna los valores de X, Y.
 	 * @param otra Es la coordenada que queremos copiar.
 	 */
 	public Coordenada2D(Coordenada2D otra){
@@ -93,11 +93,12 @@ public class Coordenada2D extends Coordenada{
 		return "(" + x + "," + y + ")";
 	}
 	/**
-	 * Metodo que hace la suma de las coordenadas y devuelve el objeto sumado.
-	 * @param otra Es la coordenada a sumar.
-	 * @return nueva coordenada.
-	 * @throws ExcepcionCoordenadaIncorrecta 
+	 * Implementación del metodo abstracto suma de la clase Coordenada que se encarga de sumar dos Coordenadas2D.
+	 * @param c Coordenada que se va a sumar a esta Cooordenada.
+	 * @return Coordenada2D Devuelve una referencia a una Coordenada2D. 
+	 * @throws ExcepcionCoordenadaIncorrecta Lanza una excepcion cuando la Coordenada no es válida.
 	 */
+	@Override
 	public Coordenada2D suma(Coordenada otra) throws ExcepcionCoordenadaIncorrecta
 	{
 		if(otra == null) { throw new ExcepcionArgumentosIncorrectos(); }

@@ -10,7 +10,7 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
- * Clase que representa la matriz de celdas usadas en el juego de la vida.
+ * Clase abstracta que representa la matriz de celdas usadas en el juego de la vida.
  * @author Brian Mathias, Pesci Juliani
  */
 public abstract class Tablero {
@@ -25,7 +25,7 @@ public abstract class Tablero {
 	/**
 	 * Constructor que asigna unas dimensiones a un tablero e inicializa sus celdas en estado MUERTA.
 	 * @param dims Es el tamanyo que tendra el tablero.
-	 * @throws ExcepcionCoordenadaIncorrecta 
+	 * @throws ExcepcionCoordenadaIncorrecta Lanza la excepcion cuando la coordenada no es valida.
 	 */
 	protected Tablero(Coordenada dimensiones) throws ExcepcionCoordenadaIncorrecta
 	{
@@ -54,7 +54,7 @@ public abstract class Tablero {
 	 * Metodo que devuelve el estado de una celda concreta, en caso de que la celda no exista imprime un mensaje de error y devuelve null.
 	 * @param c Es la coordenada a evaluar.
 	 * @return Devuelve el estado de la celda o null si la celda no existe.
-	 * @throws ExcepcionPosicionFueraTablero 
+	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la posicion no es valida.
 	 */
 	public EstadoCelda getCelda(Coordenada posicion) throws ExcepcionPosicionFueraTablero {
 		if(posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
@@ -65,8 +65,7 @@ public abstract class Tablero {
 	 * Metodo que asigna un estado a una celda que exista en el HashMap.
 	 * @param c es la celda a la que quiero cambiar el estado.
 	 * @param e es el estado que quiero asignar a 'c'.
-	 * @throws ExcepcionPosicionFueraTablero 
-	 * @throws ExcepcionCoordenadaIncorrecta 
+	 * @throws ExcepcionPosicionFueraTablero Lanza la posicion cuando la celda que se pide no existe en el tablero.
 	 */
 	public void setCelda(Coordenada posicion, EstadoCelda e) throws ExcepcionPosicionFueraTablero {
 		if(posicion==null || e==null) { throw new ExcepcionArgumentosIncorrectos(); }
@@ -74,10 +73,10 @@ public abstract class Tablero {
 		else { throw new ExcepcionPosicionFueraTablero(dimensiones, posicion); }
 	}
 	/**
-	 * Metodo que devuelve un array de las celdas vecinas en sentido antihorario.
+	 * Metodo abstractoque devuelve un array de las celdas vecinas en sentido antihorario.
 	 * @param c es la coordenada central, a partir de la cual quiero mirar.
-	 * @return Devuelve un array que contiene entre 3 y 8 coordenadas vecinas a 'c'.
-	 * @throws ExcepcionPosicionFueraTablero 
+	 * @return Devuelve un array que contiene las coordenadas vecinas a 'c'.
+	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la celda no existe.
 	 */
 	public abstract ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada c) throws ExcepcionPosicionFueraTablero;
 	/**
@@ -85,8 +84,7 @@ public abstract class Tablero {
 	 * @param p Es el patron a cargar.
 	 * @param a Es la coordenada a partir de la cual se intenta cargar.
 	 * @return Devuelve falso en caso de que no se pueda cargar y true en caso contrario.
-	 * @throws ExcepcionPosicionFueraTablero 
-	 * @throws ExcepcionArgumentosIncorrectos 
+	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la coordenada esta fuera del tablero.
 	 */
 	public void cargaPatron(Patron p, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
 		

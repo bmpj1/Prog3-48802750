@@ -20,11 +20,11 @@ public class ReglaConway extends Regla {
 		nuevoEstado = null;
 	}
 	/**
-	 * Metodo publico que se encarga de calcular el proximo estado de una celda.
-	 * @param tablero Tablero que esta actualmente en juego.
+	 * Metodo publico que se encarga de calcular el proximo estado de una celda en un Tablero2D.
+	 * @param tablero Tablero2D que esta actualmente en juego.
 	 * @param posicion Coordenada de la celda a evaluar.
 	 * @return Devuelve el proximo estado de la celda.
-	 * @throws ExcepcionPosicionFueraTablero 
+	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la posicion está fuera del tablero.
 	 */
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
 		if(tablero==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
