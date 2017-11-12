@@ -18,50 +18,52 @@ public class Regla30 extends Regla {
 	@Override
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
 		if(tablero==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
-/* ¿Hay que comprobar que posicion sea una instancia de Coordenada1D? */
-		Coordenada1D pos = (Coordenada1D) posicion;
-		String vecinas="";
-		Iterator<Coordenada> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
-		int i = 0;
-		while(cordVecinas.hasNext()) {
-		    i++;
-		    cordVecinas.next();
-		}
 		
-		cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
-		/* Si hay 2 vecinas */
-		if(i==2) {
-			/* (x-1) */
-			Coordenada1D key = (Coordenada1D) cordVecinas.next();
-			vecinas += tablero.getCelda(key).getEstado();
-			/* (x) */
-			vecinas += tablero.getCelda(pos).getEstado();
-			/* (x+1) */
-			key = (Coordenada1D) cordVecinas.next();
-			vecinas += tablero.getCelda(key).getEstado();
+		if( (posicion instanceof Coordenada1D) && (tablero instanceof Tablero1D) ) {
+			String vecinas="";
+			Iterator<Coordenada> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
+			int i = 0;
+			while(cordVecinas.hasNext()) {
+			    i++;
+			    cordVecinas.next();
+			}
+			
+			cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
+			/* Si hay 2 vecinas */
+			if(i==2) {
+				/* (x-1) */
+				Coordenada key = cordVecinas.next();
+				vecinas += tablero.getCelda(key).getEstado();
+				/* (x) */
+				vecinas += tablero.getCelda(posicion).getEstado();
+				/* (x+1) */
+				key = cordVecinas.next();
+				vecinas += tablero.getCelda(key).getEstado();
+			}
+			
+			switch(vecinas)
+			{
+				case "***":
+					return (EstadoCelda.MUERTA);
+				case "** ":
+					return (EstadoCelda.MUERTA);
+				case "* *":
+					return (EstadoCelda.MUERTA);
+				case "*  ":
+					return (EstadoCelda.VIVA);
+				case " **":
+					return (EstadoCelda.VIVA);
+				case " * ":
+					return (EstadoCelda.VIVA);
+				case "  *":
+					return (EstadoCelda.VIVA);
+				case "   ":
+					return (EstadoCelda.MUERTA);
+			}
+	
+			/* Si hay 1 vecina. */
+			return EstadoCelda.MUERTA;
 		}
-		
-		switch(vecinas)
-		{
-			case "***":
-				return (EstadoCelda.MUERTA);
-			case "** ":
-				return (EstadoCelda.MUERTA);
-			case "* *":
-				return (EstadoCelda.MUERTA);
-			case "*  ":
-				return (EstadoCelda.VIVA);
-			case " **":
-				return (EstadoCelda.VIVA);
-			case " * ":
-				return (EstadoCelda.VIVA);
-			case "  *":
-				return (EstadoCelda.VIVA);
-			case "   ":
-				return (EstadoCelda.MUERTA);
-		}
-
-		/* Si hay 1 vecina. */
-		return EstadoCelda.MUERTA;
+		return null;
 	}
 }
