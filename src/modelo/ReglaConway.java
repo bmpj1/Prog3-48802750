@@ -29,21 +29,23 @@ public class ReglaConway extends Regla {
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
 		if(tablero==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		
-		int vecinas=0;
-		Iterator<Coordenada> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
-		while(cordVecinas.hasNext() && vecinas!=4) {
-			Coordenada2D key = (Coordenada2D) cordVecinas.next();
-			if(tablero.getCelda(key)==EstadoCelda.VIVA) {
-				vecinas++;
+		if( (posicion instanceof Coordenada2D) && (tablero instanceof Tablero2D)) {
+			int vecinas=0;
+			Iterator<Coordenada> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
+			while(cordVecinas.hasNext() && vecinas!=4) {
+				Coordenada key = cordVecinas.next();
+				if(tablero.getCelda(key)==EstadoCelda.VIVA) {
+					vecinas++;
+				}
 			}
+			if(tablero.getCelda(posicion)==EstadoCelda.VIVA && (vecinas==2 || vecinas==3)) {
+				nuevoEstado = EstadoCelda.VIVA;
+			} 	else if(tablero.getCelda(posicion)==EstadoCelda.MUERTA && vecinas==3) {
+				nuevoEstado = EstadoCelda.VIVA;
+				} else {
+					nuevoEstado = EstadoCelda.MUERTA;
+				}
 		}
-		if(tablero.getCelda(posicion)==EstadoCelda.VIVA && (vecinas==2 || vecinas==3)) {
-			nuevoEstado = EstadoCelda.VIVA;
-		} 	else if(tablero.getCelda(posicion)==EstadoCelda.MUERTA && vecinas==3) {
-			nuevoEstado = EstadoCelda.VIVA;
-			} else {
-				nuevoEstado = EstadoCelda.MUERTA;
-			}
 		return nuevoEstado;		
 	}
 }
