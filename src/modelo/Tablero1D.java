@@ -28,7 +28,7 @@ public class Tablero1D extends Tablero {
 	}
 	/**
 	 * Metodo que devuelve un array de las celdas vecinas en sentido antihorario.
-	 * @param c es la coordenada central, a partir de la cual quiero mirar.
+	 * @param posicion es la coordenada central, a partir de la cual quiero mirar.
 	 * @return Devuelve un array que contiene entre 1 y 2 coordenadas vecinas a 'c'.
 	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la celda no existe.
 	 */
@@ -40,6 +40,8 @@ public class Tablero1D extends Tablero {
 			Coordenada1D c = (Coordenada1D) posicion;
 	//****************¿hay que hacer este try~catch igual que en Coordenada2d?******
 			try {
+				// Faltaba comprobar si la celda que me pasan existe... T_T
+				if(celdas.containsKey(c)==false) { throw new ExcepcionPosicionFueraTablero(dimensiones, c); }
 				
 				if((c.getX()-1)>-1 && celdas.containsKey(new Coordenada1D(c.getX()-1))) { cordVecinas.add(new Coordenada1D(c.getX()-1)); }
 				if(celdas.containsKey(new Coordenada1D(c.getX()+1))) { cordVecinas.add(new Coordenada1D(c.getX()+1)); }

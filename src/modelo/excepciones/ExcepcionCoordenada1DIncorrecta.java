@@ -17,13 +17,14 @@ public class ExcepcionCoordenada1DIncorrecta extends ExcepcionCoordenadaIncorrec
 	}
 	/**
 	 * Metodo que devuelve un mensaje de error.
+	 * @return String Devuelve le mensaje de error.
 	 */
 	public String getMessage() {
 		return ("Error: Coordenada1D("+x+") incorrecta.\n");
 	}
 	/**
 	 * Metodo que devuelve el número que dio el error.
-	 * @return X Es el número erroneo.
+	 * @return x Es el número erroneo.
 	 */
 	public int getX() {
 		return x;

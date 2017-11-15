@@ -25,6 +25,7 @@ public class ExcepcionPosicionFueraTablero extends Exception {
 	}
 	/**
 	 * Metodo que devuelve un mensaje de error.
+	 * @return String Mensaje de error.
 	 */
 	public String getMessage() {
 		return ("Error: La celda "+coordenada.toString()+" no está dentro de las dimensiones "+dimensiones.toString()+".\n");

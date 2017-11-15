@@ -4,14 +4,19 @@ import java.util.Iterator;
 
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
-
+/**
+ * Clase que se encarga de actualizar las celdas de un juego con Coordenadas tipo Coordenada1D.
+ * @author Brian Mathias, Pesci Juliani.
+ */
 public class Regla30 extends Regla {
-	
+	/**
+	 * Constructor base que no hace nada...
+	 */
 	public Regla30() {}
 	/**
 	 * Implementacion del Metodo abstracto de la clase regla que se va a encargar de calcular el nuevo estado de una Coordenada1D del tablero1D.
-	 * @param t Es el Tablero1D a analizar.
-	 * @param c Es la posicion a analizar.
+	 * @param tablero Es el Tablero1D a analizar.
+	 * @param posicion Es la posicion a analizar.
 	 * @return EstadoCelda Es el próximo estado de la celda.
 	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la posición está fuera del tablero.
 	 */

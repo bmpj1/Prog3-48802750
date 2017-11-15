@@ -33,6 +33,7 @@ public class Coordenada1D extends Coordenada {
 	}
 	/**
 	 * Metodo publico que permite convertir la coordenada en un string.
+	 * @return String devuelve el mapa en formato string.
 	 */
 	public String toString() {
 		return "("+x+")";

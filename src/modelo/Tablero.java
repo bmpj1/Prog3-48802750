@@ -24,7 +24,7 @@ public abstract class Tablero {
 	protected HashMap<Coordenada,EstadoCelda> celdas;
 	/**
 	 * Constructor que asigna unas dimensiones a un tablero e inicializa sus celdas en estado MUERTA.
-	 * @param dims Es el tamanyo que tendra el tablero.
+	 * @param dimensiones Es el tamanyo que tendra el tablero.
 	 * @throws ExcepcionCoordenadaIncorrecta Lanza la excepcion cuando la coordenada no es valida.
 	 */
 	protected Tablero(Coordenada dimensiones) throws ExcepcionCoordenadaIncorrecta
@@ -52,7 +52,7 @@ public abstract class Tablero {
 	}
 	/**
 	 * Metodo que devuelve el estado de una celda concreta, en caso de que la celda no exista imprime un mensaje de error y devuelve null.
-	 * @param c Es la coordenada a evaluar.
+	 * @param posicion Es la coordenada a evaluar.
 	 * @return Devuelve el estado de la celda o null si la celda no existe.
 	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la posicion no es valida.
 	 */
@@ -63,7 +63,7 @@ public abstract class Tablero {
 	}
 	/**
 	 * Metodo que asigna un estado a una celda que exista en el HashMap.
-	 * @param c es la celda a la que quiero cambiar el estado.
+	 * @param posicion es la celda a la que quiero cambiar el estado.
 	 * @param e es el estado que quiero asignar a 'c'.
 	 * @throws ExcepcionPosicionFueraTablero Lanza la posicion cuando la celda que se pide no existe en el tablero.
 	 */
@@ -82,8 +82,7 @@ public abstract class Tablero {
 	/**
 	 * Metodo publico que se encarga de intentar cargar un patron en el tablero.
 	 * @param p Es el patron a cargar.
-	 * @param a Es la coordenada a partir de la cual se intenta cargar.
-	 * @return Devuelve falso en caso de que no se pueda cargar y true en caso contrario.
+	 * @param posicion Es la coordenada a partir de la cual se intenta cargar.
 	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la coordenada esta fuera del tablero.
 	 */
 	public void cargaPatron(Patron p, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
@@ -115,7 +114,7 @@ public abstract class Tablero {
 	}
 	/**
 	 * Metodo publico que se encarga de comprobar si una coordenada existe.
-	 * @param otra Es la coordenada a comprobar.
+	 * @param posicion Es la coordenada a comprobar.
 	 * @return Contiene Devuelve true en caso de que la celda existe, false en caso contrario.
 	 */
 	public boolean contiene(Coordenada posicion) {

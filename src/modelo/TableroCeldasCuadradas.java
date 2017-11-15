@@ -22,7 +22,7 @@ public class TableroCeldasCuadradas extends Tablero2D {
 	}
 	/**
 	 * Implementacion del Metodo abstracto que devuelve un array de las celdas vecinas en sentido antihorario.
-	 * @param c Es la coordenada central, a partir de la cual quiero mirar.
+	 * @param posicion Es la coordenada central, a partir de la cual quiero mirar.
 	 * @return Devuelve un array que contiene entre 3 y 8 coordenadas vecinas a 'c'.
 	 * @throws ExcepcionPosicionFueraTablero 
 	 */
@@ -83,6 +83,7 @@ public class TableroCeldasCuadradas extends Tablero2D {
 	}
 	/**
 	 * Metodo que devuelve el tablero en formato string.
+	 * @return String Devuelve el tablero en formato String.
 	 */
 	public String toString() {
 		Coordenada2D dims = (Coordenada2D) dimensiones;

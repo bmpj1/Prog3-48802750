@@ -23,6 +23,7 @@ public class ExcepcionCoordenada2DIncorrecta extends ExcepcionCoordenadaIncorrec
 	}
 	/**
 	 * Metodo que devuelve un mensaje de error.
+	 * @return String Mensaje de error.
 	 */
 	public String getMessage() {
 		return ("Error: Coordenada2D("+x+","+y+") incorrecta.\n");

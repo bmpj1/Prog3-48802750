@@ -94,7 +94,7 @@ public class Coordenada2D extends Coordenada{
 	}
 	/**
 	 * Implementación del metodo abstracto suma de la clase Coordenada que se encarga de sumar dos Coordenadas2D.
-	 * @param c Coordenada que se va a sumar a esta Cooordenada.
+	 * @param otra Coordenada que se va a sumar a esta Cooordenada.
 	 * @return Coordenada2D Devuelve una referencia a una Coordenada2D. 
 	 * @throws ExcepcionCoordenadaIncorrecta Lanza una excepcion cuando la Coordenada no es válida.
 	 */
