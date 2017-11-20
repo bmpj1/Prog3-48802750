@@ -10,7 +10,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * Clase que hereda de la clase abstracta Tablero. Representa la matriz de celdas unidimensionales usadas en el juego de la vida.
  * @author Brian Mathias, Pesci Juliani
  */
-public class Tablero1D extends Tablero {
+public class Tablero1D extends Tablero implements Imprimible {
 	/**
 	 * Constructor que crea un tablero a partir de un entero que define su anchura.
 	 * @param x Es la anchura del tablero.
@@ -75,5 +75,9 @@ public class Tablero1D extends Tablero {
 		
 		return impTablero;
  	}
+	@Override
+	public String generaCadena() {
+		return this.toString();
+	}
 	
 }

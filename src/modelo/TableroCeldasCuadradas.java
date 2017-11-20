@@ -10,7 +10,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * Clase que hereda de la clase abstracta Tablero2D. Representa la matriz de celdas bidimensionales usadas en el juego de la vida.
  * @author Brian Mathias, Pesci Juliani
  */
-public class TableroCeldasCuadradas extends Tablero2D {
+public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 	/**
 	 * Constructor que crea un tablero de 2 dimensiones delegando la funcionalidad a la superClase.
 	 * @param ancho Anchura del tablero.
@@ -118,4 +118,8 @@ public class TableroCeldasCuadradas extends Tablero2D {
 		impTablero += "\n";
 		return impTablero;
  	}
+	@Override
+	public String generaCadena() {
+		return this.toString();
+	}
 }
