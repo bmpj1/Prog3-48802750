@@ -123,7 +123,7 @@ public abstract class Tablero {
 		if(celdas.containsKey(posicion)) { contiene = true; }
 		return contiene;
 	}
-
+	
  }
 /*REFERENCIAS:
 *	HashMap: https://www.youtube.com/watch?v=TX5Sucd1CRA

@@ -9,8 +9,10 @@ import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 public class ParserTableros {
 	public ParserTableros() { }
 	
-	public Tablero leeTablero(String cadena) throws ExcepcionLectura {
-		/*
+	public static Tablero leeTablero(String cadena) throws ExcepcionLectura {
+		/*Da un error de ExcepcionLectura cuando la entrada sea vacía, o ExcepcionArgumentosIncorrectos 
+		 * cuando el parámetro pasado es null. 
+		 * Reenvía las excepciones recibidas desde ParserTablero1D y ParserTablero2D.
 		if(cadena==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		if(cadena=="") { throw new ExcepcionLectura("La cadena está vacía"); }
 		*/
