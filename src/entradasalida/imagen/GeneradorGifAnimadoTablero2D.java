@@ -11,7 +11,9 @@ import modelo.Coordenada;
 import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Juego;
-import modelo.excepciones.*;
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionEjecucion;
+import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero {
 

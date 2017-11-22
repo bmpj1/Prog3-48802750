@@ -14,12 +14,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Set;
 
-import modelo.excepciones.ExcepcionCoordenada1DIncorrecta;
-import modelo.excepciones.ExcepcionPosicionFueraTablero;
-
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import modelo.excepciones.ExcepcionCoordenada1DIncorrecta;
+import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 public class TableroP3Test {
 	Tablero tab;

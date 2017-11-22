@@ -1,5 +1,6 @@
 package mains;
 
+import entradasalida.excepciones.ExcepcionLectura;
 import modelo.Coordenada1D;
 import modelo.EstadoCelda;
 import modelo.Juego;

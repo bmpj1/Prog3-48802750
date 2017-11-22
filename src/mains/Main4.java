@@ -2,6 +2,11 @@ package mains;
 
 import java.io.File;
 
+import entradasalida.Factory;
+import entradasalida.IGeneradorFichero;
+import entradasalida.ParserTableros;
+import entradasalida.excepciones.ExcepcionGeneracion;
+import entradasalida.excepciones.ExcepcionLectura;
 import modelo.Coordenada;
 import modelo.Coordenada1D;
 import modelo.Coordenada2D;
@@ -11,11 +16,6 @@ import modelo.Regla;
 import modelo.Tablero;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
-import entradasalida.Factory;
-import entradasalida.IGeneradorFichero;
-import entradasalida.ParserTableros;
-import entradasalida.excepciones.ExcepcionGeneracion;
-import entradasalida.excepciones.ExcepcionLectura;
 
 public class Main4 {
 	void run(Coordenada dimensiones, Coordenada posicionCargaPatron, String cadena, String fichero, int iteraciones) throws ExcepcionPosicionFueraTablero, ExcepcionGeneracion, ExcepcionCoordenadaIncorrecta, ExcepcionLectura {

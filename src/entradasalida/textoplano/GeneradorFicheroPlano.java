@@ -1,17 +1,14 @@
 package entradasalida.textoplano;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 import entradasalida.IGeneradorFichero;
 import entradasalida.excepciones.ExcepcionGeneracion;
-import modelo.Imprimible;
 import modelo.Juego;
-import modelo.Tablero;
 import modelo.Tablero1D;
 import modelo.TableroCeldasCuadradas;
-import modelo.excepciones.*;
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
 /******
  * 

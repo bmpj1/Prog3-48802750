@@ -1,13 +1,22 @@
 package entradasalida;
 
-import java.util.ArrayList;
-
 import entradasalida.excepciones.ExcepcionGeneracion;
 import entradasalida.imagen.GeneradorGIFTablero1D;
 import entradasalida.imagen.GeneradorGifAnimadoTablero2D;
 import entradasalida.textoplano.GeneradorFicheroPlano;
-import modelo.*;
-import modelo.excepciones.*;
+import modelo.Coordenada;
+import modelo.Coordenada1D;
+import modelo.Coordenada2D;
+import modelo.Regla;
+import modelo.Regla30;
+import modelo.ReglaConway;
+import modelo.Tablero;
+import modelo.Tablero1D;
+import modelo.Tablero2D;
+import modelo.TableroCeldasCuadradas;
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
+import modelo.excepciones.ExcepcionEjecucion;
 
 public class Factory {
 	public Factory() { super(); }

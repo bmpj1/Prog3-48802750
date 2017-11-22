@@ -1,6 +1,6 @@
 package mains;
 import entradasalida.excepciones.ExcepcionLectura;
-import entradasalida.textoplano.*;
+import entradasalida.textoplano.ParserTablero2D;
 public class Pruebas {
 
 	public static void main(String[] args) {

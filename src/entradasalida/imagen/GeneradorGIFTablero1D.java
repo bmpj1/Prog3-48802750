@@ -1,15 +1,17 @@
 package entradasalida.imagen;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.Iterator;
 
 import entradasalida.IGeneradorFichero;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import gifs.ImagenGIF;
-import modelo.*;
-import modelo.excepciones.*;
+import modelo.Coordenada;
+import modelo.Coordenada1D;
+import modelo.EstadoCelda;
+import modelo.Juego;
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionEjecucion;
 
 public class GeneradorGIFTablero1D implements IGeneradorFichero {
 

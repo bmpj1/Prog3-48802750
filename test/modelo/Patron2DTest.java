@@ -1,14 +1,15 @@
 package modelo;
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.HashSet;
 
-import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 public class Patron2DTest {
 

@@ -4,7 +4,6 @@ import entradasalida.excepciones.ExcepcionLectura;
 import entradasalida.textoplano.ParserTablero1D;
 import entradasalida.textoplano.ParserTablero2D;
 import modelo.Tablero;
-import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
 public class ParserTableros {
 	public ParserTableros() { }

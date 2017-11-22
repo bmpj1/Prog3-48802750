@@ -1,10 +1,12 @@
 package modelo;
 
-import modelo.excepciones.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+
+import modelo.excepciones.ExcepcionArgumentosIncorrectos;
+import modelo.excepciones.ExcepcionEjecucion;
+import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 /**
  * Clase principal del programa que se encarga de enlazar una regla con un tablero y muchos patrones.

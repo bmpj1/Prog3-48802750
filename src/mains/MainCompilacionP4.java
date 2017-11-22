@@ -1,6 +1,18 @@
 package mains;
 
 import java.io.File;
+
+import entradasalida.Factory;
+import entradasalida.IGeneradorFichero;
+import entradasalida.IParserTablero;
+import entradasalida.ParserTableros;
+import entradasalida.excepciones.ExcepcionGeneracion;
+import entradasalida.excepciones.ExcepcionLectura;
+import entradasalida.imagen.GeneradorGIFTablero1D;
+import entradasalida.imagen.GeneradorGifAnimadoTablero2D;
+import entradasalida.textoplano.GeneradorFicheroPlano;
+import entradasalida.textoplano.ParserTablero1D;
+import entradasalida.textoplano.ParserTablero2D;
 import modelo.Coordenada;
 import modelo.Coordenada1D;
 import modelo.Coordenada2D;
@@ -21,17 +33,6 @@ import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
-import entradasalida.Factory;
-import entradasalida.IGeneradorFichero;
-import entradasalida.IParserTablero;
-import entradasalida.ParserTableros;
-import entradasalida.excepciones.ExcepcionGeneracion;
-import entradasalida.excepciones.ExcepcionLectura;
-import entradasalida.imagen.GeneradorGIFTablero1D;
-import entradasalida.imagen.GeneradorGifAnimadoTablero2D;
-import entradasalida.textoplano.GeneradorFicheroPlano;
-import entradasalida.textoplano.ParserTablero1D;
-import entradasalida.textoplano.ParserTablero2D;
 
 public class MainCompilacionP4 {
 	

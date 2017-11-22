@@ -37,7 +37,6 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 		try {
 			Coordenada2D otra;
 			
-			
 			int i=(c.getX()-1);
 			int j=(c.getY()-1);
 			
