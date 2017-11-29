@@ -17,10 +17,22 @@ import modelo.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
-
+/**
+ * Clase que se encarga de generar instancias. 
+ * @author Brian Mathias, Pesci Juliani
+ */
 public class Factory {
+	/**
+	 * Constructor base que no hace nada.
+	 */
 	public Factory() { super(); }
-	
+	/**
+	 * Metodo estatico que se encarga de 
+	 * @param tablero
+	 * @param extension
+	 * @return
+	 * @throws ExcepcionGeneracion
+	 */
 	public static IGeneradorFichero creaGeneradorFichero(Tablero tablero,String extension) throws ExcepcionGeneracion 
 	{
 		if(tablero==null || extension==null) { throw new ExcepcionArgumentosIncorrectos(); }

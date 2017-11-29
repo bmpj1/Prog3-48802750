@@ -28,7 +28,7 @@ public class ParserTablero2D implements IParserTablero{
 			int alto = 0;
 			int celdasPorLinea = 0;
 			HashMap<Coordenada, EstadoCelda> hash = new HashMap<Coordenada,EstadoCelda>();
-			
+			/* String[] parserCadena = cadena.split("\n"); // Sirve para que cada vez que encuentre un \n se divida el string en arrays */
 			for(int i=0; i<cadena.length();i++) {
 				if(cadena.charAt(i) != ' ' && cadena.charAt(i) != '*' && cadena.charAt(i) != '\n') { throw new ExcepcionLectura("La cadena no es válida."); }
 				
