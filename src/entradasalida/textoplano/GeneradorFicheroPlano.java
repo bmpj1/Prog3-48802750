@@ -21,7 +21,7 @@ public class GeneradorFicheroPlano implements IGeneradorFichero{
 	 */
 	public GeneradorFicheroPlano() { super(); }
 	 
-	@Override
+	/** {@inheritDoc} */
 	public void generaFichero(File file, Juego juego, int iteraciones) throws ExcepcionGeneracion {
 		if(file==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		if(juego==null) { throw new ExcepcionArgumentosIncorrectos(); }

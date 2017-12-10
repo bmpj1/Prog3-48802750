@@ -22,7 +22,7 @@ public class GeneradorGIFTablero1D implements IGeneradorFichero {
 	 */
 	public GeneradorGIFTablero1D() { super(); }
 	
-	@Override
+	/** {@inheritDoc} */
 	public void generaFichero(File fichero, Juego juego, int iteraciones) throws ExcepcionGeneracion {
 		if(fichero==null || juego==null) { throw new ExcepcionArgumentosIncorrectos();}
 		if(!(iteraciones > 0)) { throw new ExcepcionGeneracion("El valor de iteraciones tiene que ser mayor que 0"); }

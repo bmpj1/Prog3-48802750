@@ -22,7 +22,7 @@ public class ParserTablero2D implements IParserTablero{
 	 * Constructor vacio.
 	 */
 	public ParserTablero2D() { }
-	@Override
+	/** {@inheritDoc} */
 	public Tablero leeTablero(String cadena) throws ExcepcionLectura {
 		if(cadena == null) { throw new ExcepcionArgumentosIncorrectos(); }
 		if(cadena == "") { throw new ExcepcionLectura("No se aceptan cadenas vacias."); }
