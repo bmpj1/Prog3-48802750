@@ -12,10 +12,16 @@ import modelo.EstadoCelda;
 import modelo.Juego;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionEjecucion;
-
+/**
+ * Clase que genera gifs a partir de tablero1d
+ * @author Brian Mathias, Pesci Juliani
+ */
 public class GeneradorGIFTablero1D implements IGeneradorFichero {
-
+	/**
+	 * Constructor vacio.
+	 */
 	public GeneradorGIFTablero1D() { super(); }
+	
 	@Override
 	public void generaFichero(File fichero, Juego juego, int iteraciones) throws ExcepcionGeneracion {
 		if(fichero==null || juego==null) { throw new ExcepcionArgumentosIncorrectos();}

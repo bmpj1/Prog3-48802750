@@ -14,8 +14,13 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
+/**
+ * Metodo publico que lee tableros
+ */
 public class ParserTablero2D implements IParserTablero{
-
+	/**
+	 * Constructor vacio.
+	 */
 	public ParserTablero2D() { }
 	@Override
 	public Tablero leeTablero(String cadena) throws ExcepcionLectura {

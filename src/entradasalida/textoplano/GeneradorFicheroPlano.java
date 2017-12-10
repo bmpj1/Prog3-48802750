@@ -11,13 +11,14 @@ import modelo.Tablero1D;
 import modelo.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
-/******
- * 
- * @author Usuario
- *
+/**
+ * Clase que genera ficheros .txt
+ * @author Brian Mathias, Pesci Juliani
  */
 public class GeneradorFicheroPlano implements IGeneradorFichero{
-
+	/**
+	 * Constructor base.
+	 */
 	public GeneradorFicheroPlano() { super(); }
 	
 	@Override

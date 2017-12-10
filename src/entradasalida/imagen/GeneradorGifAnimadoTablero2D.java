@@ -14,9 +14,14 @@ import modelo.Juego;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
-
+/**
+ * Clase que genera gif animados de tablero2d. 
+ * @author Brian Mathias, Pesci Juliani
+ */
 public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero {
-
+	/**
+	 * Constructor vacio
+	 */
 	public GeneradorGifAnimadoTablero2D() { super(); }
 	
 	@Override

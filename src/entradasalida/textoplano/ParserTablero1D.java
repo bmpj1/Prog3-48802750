@@ -10,11 +10,16 @@ import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
-
+/**
+ * Clase que parsea tableros 1d
+ * @author Brian Mathias, Pesci Juliani
+ */
 public class ParserTablero1D implements IParserTablero{
-	
+	/**
+	 * Constructor vacio.
+	 */
 	public ParserTablero1D() { }
-
+	@Override
 	public Tablero leeTablero(String cadena) throws ExcepcionLectura {
 		if(cadena == null) { throw new ExcepcionArgumentosIncorrectos(); }
 		if(cadena == "") { throw new ExcepcionLectura("No se aceptan cadenas vacias."); }

@@ -27,11 +27,11 @@ public class Factory {
 	 */
 	public Factory() { super(); }
 	/**
-	 * Metodo estatico que se encarga de 
-	 * @param tablero
-	 * @param extension
-	 * @return
-	 * @throws ExcepcionGeneracion
+	 * Metodo estatico que genera ficheros
+	 * @param tablero tablero
+	 * @param extension extension .txt|.gif
+	 * @return genFich Fichero creado
+	 * @throws ExcepcionGeneracion Excepcion que se da cuando la extension no es valida.
 	 */
 	public static IGeneradorFichero creaGeneradorFichero(Tablero tablero,String extension) throws ExcepcionGeneracion 
 	{
@@ -55,7 +55,11 @@ public class Factory {
 		
 		return genFich; 
 	}
-	
+	/**
+	 * Metodo statico que crea reglas para un tablero
+	 * @param tablero tablero
+	 * @return regla devuelve la regla creada
+	 */
 	public static Regla creaRegla(Tablero tablero) {
 		if(tablero==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		Regla regla = null;
@@ -71,19 +75,24 @@ public class Factory {
 		
 		return regla; 
 	}
-	
+	/**
+	 * Metodo estatico que crea tableros a partir de unas dimensiones
+	 * @param dimensiones Coordenada1d o 2d para crear el tablero
+	 * @return tablero devuelve el tablero creado.
+	 * @throws ExcepcionCoordenadaIncorrecta Excepcion que se da cuando el tablero no es valido
+	 */
 	public static Tablero creaTablero(Coordenada dimensiones) throws ExcepcionCoordenadaIncorrecta {
 		if(dimensiones==null) { throw new ExcepcionArgumentosIncorrectos(); }
-
+		Tablero tablero = null;
 		if(dimensiones instanceof Coordenada1D) {
 			Coordenada1D dims = (Coordenada1D) dimensiones;
-			return new Tablero1D(dims.getX());
+			tablero = new Tablero1D(dims.getX());
 			
 		} else
 		if(dimensiones instanceof Coordenada2D){
 			Coordenada2D dims = (Coordenada2D) dimensiones;
-			return new TableroCeldasCuadradas(dims.getX(),dims.getY());
+			tablero = new TableroCeldasCuadradas(dims.getX(),dims.getY());
 		} else { throw new ExcepcionEjecucion("El tablero no es valido."); }
-		
+		return tablero;
 	}
 }
