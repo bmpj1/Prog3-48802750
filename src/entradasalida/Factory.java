@@ -1,5 +1,5 @@
 package entradasalida;
-
+ 
 import entradasalida.excepciones.ExcepcionGeneracion;
 import entradasalida.imagen.GeneradorGIFTablero1D;
 import entradasalida.imagen.GeneradorGifAnimadoTablero2D;

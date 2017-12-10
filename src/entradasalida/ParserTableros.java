@@ -12,7 +12,7 @@ import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 public class ParserTableros {
 	/**
 	 * Constructor vacio.
-	 */
+	 */ 
 	public ParserTableros() { }
 	/**
 	 * Metodo que devuelve un tablero

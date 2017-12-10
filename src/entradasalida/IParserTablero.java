@@ -1,5 +1,5 @@
 package entradasalida;
-
+ 
 import entradasalida.excepciones.ExcepcionLectura;
 import modelo.Tablero;
 /**

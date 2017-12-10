@@ -75,7 +75,7 @@ public class ParserTablero2D implements IParserTablero{
 			throw new ExcepcionEjecucion(e1);
 		} catch (ExcepcionPosicionFueraTablero e1) {
 			throw new ExcepcionEjecucion(e1);
-		}
+		} 
 		return tablero;
 	}
 

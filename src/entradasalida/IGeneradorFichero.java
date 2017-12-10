@@ -1,5 +1,5 @@
 package entradasalida;
-
+ 
 import java.io.File;
 
 import entradasalida.excepciones.ExcepcionGeneracion;

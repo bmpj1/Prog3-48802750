@@ -17,7 +17,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
  * Clase que genera gif animados de tablero2d. 
  * @author Brian Mathias, Pesci Juliani
- */
+ */ 
 public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero {
 	/**
 	 * Constructor vacio

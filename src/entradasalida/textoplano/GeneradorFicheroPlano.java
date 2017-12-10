@@ -20,7 +20,7 @@ public class GeneradorFicheroPlano implements IGeneradorFichero{
 	 * Constructor base.
 	 */
 	public GeneradorFicheroPlano() { super(); }
-	
+	 
 	@Override
 	public void generaFichero(File file, Juego juego, int iteraciones) throws ExcepcionGeneracion {
 		if(file==null) { throw new ExcepcionArgumentosIncorrectos(); }

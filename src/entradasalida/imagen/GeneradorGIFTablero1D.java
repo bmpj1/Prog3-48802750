@@ -46,7 +46,7 @@ public class GeneradorGIFTablero1D implements IGeneradorFichero {
 				
 				juego.actualiza();
 			}
-			
+			 
 			gif.guardaFichero(fichero);
 			
 		} catch (Exception e) {
