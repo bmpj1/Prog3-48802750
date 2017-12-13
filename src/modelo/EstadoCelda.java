@@ -20,7 +20,7 @@ public enum EstadoCelda { VIVA("*"), MUERTA(" ");
 	 * Metodo que devuelve el estado de la celda en formato string.
 	 * @return String del estado de la celda 
 	 */
-	protected String getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 }

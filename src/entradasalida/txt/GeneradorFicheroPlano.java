@@ -1,4 +1,4 @@
-package entradasalida.textoplano;
+package entradasalida.txt;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -7,8 +7,8 @@ import entradasalida.IGeneradorFichero;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import modelo.Imprimible;
 import modelo.Juego;
-import modelo.Tablero1D;
-import modelo.TableroCeldasCuadradas;
+import modelo.d1.Tablero1D;
+import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
 /**
@@ -48,7 +48,9 @@ public class GeneradorFicheroPlano implements IGeneradorFichero{
 			throw new ExcepcionGeneracion(e);
 		}
 		finally {
-			p.close();				
+			if(p != null) {
+				p.close();
+			}
 		}
 	}
 

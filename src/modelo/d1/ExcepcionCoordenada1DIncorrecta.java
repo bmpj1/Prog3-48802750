@@ -1,4 +1,7 @@
-package modelo.excepciones;
+package modelo.d1;
+
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
+
 /**
  * Clase de excepcion de la rama Exception que hereda de ExcepcionCoordenadaIncorrecta. Se utiliza cuando el constructor de Coordenada1D(int) recibe un negativo.
  * @author Brian Mathias, Pesci Juliani

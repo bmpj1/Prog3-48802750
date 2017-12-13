@@ -6,7 +6,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * @author Brian Mathias, Pesci Juliani.
  *
  */
-public abstract class Regla {
+public abstract class Regla<TipoCoordenada extends Coordenada> {
 	/**
 	 * Constructor por defecto que no hace nada.
 	 */
@@ -18,5 +18,5 @@ public abstract class Regla {
 	 * @return EstadoCelda Es el próximo estado de la celda.
 	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la posición está fuera del tablero.
 	 */
-	public abstract EstadoCelda calculaSiguienteEstadoCelda(Tablero t, Coordenada c) throws ExcepcionPosicionFueraTablero ;
+	public abstract EstadoCelda calculaSiguienteEstadoCelda(Tablero<TipoCoordenada> t, TipoCoordenada c) throws ExcepcionPosicionFueraTablero ;
 }

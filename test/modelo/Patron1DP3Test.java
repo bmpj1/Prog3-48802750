@@ -1,15 +1,16 @@
 package modelo;
 
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.util.HashSet;
 
+import modelo.d1.Coordenada1D;
+import modelo.d1.Tablero1D;
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 
 public class Patron1DP3Test {
 

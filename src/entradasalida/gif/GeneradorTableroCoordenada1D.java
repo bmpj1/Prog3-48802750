@@ -1,4 +1,4 @@
-package entradasalida.imagen;
+package entradasalida.gif;
 
 import java.io.File;
 import java.util.Iterator;
@@ -7,20 +7,20 @@ import entradasalida.IGeneradorFichero;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import gifs.ImagenGIF;
 import modelo.Coordenada;
-import modelo.Coordenada1D;
 import modelo.EstadoCelda;
 import modelo.Juego;
+import modelo.d1.Coordenada1D;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionEjecucion;
 /**
  * Clase que genera gifs a partir de tablero1d
  * @author Brian Mathias, Pesci Juliani
  */
-public class GeneradorGIFTablero1D implements IGeneradorFichero {
+public class GeneradorTableroCoordenada1D implements IGeneradorFichero {
 	/**
 	 * Constructor vacio.
 	 */
-	public GeneradorGIFTablero1D() { super(); }
+	public GeneradorTableroCoordenada1D() { super(); }
 	
 	/** {@inheritDoc} */
 	public void generaFichero(File fichero, Juego juego, int iteraciones) throws ExcepcionGeneracion {

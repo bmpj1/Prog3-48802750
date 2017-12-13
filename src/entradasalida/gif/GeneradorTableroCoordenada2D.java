@@ -1,4 +1,4 @@
-package entradasalida.imagen;
+package entradasalida.gif;
 
 import java.io.File;
 import java.util.Iterator;
@@ -8,9 +8,9 @@ import entradasalida.excepciones.ExcepcionGeneracion;
 import gifs.ImagenGIF;
 import gifs.ImagenGIFAnimado;
 import modelo.Coordenada;
-import modelo.Coordenada2D;
 import modelo.EstadoCelda;
 import modelo.Juego;
+import modelo.d2.Coordenada2D;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
@@ -18,11 +18,11 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * Clase que genera gif animados de tablero2d. 
  * @author Brian Mathias, Pesci Juliani
  */ 
-public class GeneradorGifAnimadoTablero2D implements IGeneradorFichero {
+public class GeneradorTableroCoordenada2D implements IGeneradorFichero {
 	/**
 	 * Constructor vacio
 	 */
-	public GeneradorGifAnimadoTablero2D() { super(); }
+	public GeneradorTableroCoordenada2D() { super(); }
 	
 	/** {@inheritDoc} */
 	public void generaFichero(File fichero, Juego juego, int iteraciones) throws ExcepcionGeneracion {

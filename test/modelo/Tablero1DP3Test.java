@@ -1,21 +1,22 @@
 package modelo;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import modelo.d1.Coordenada1D;
+import modelo.d1.Tablero1D;
+
 public class Tablero1DP3Test {
 
-	Tablero1D tab;
+	Tablero<Coordenada1D> tab;
 	Coordenada1D dim;
 	static Patron patronsimple, patronduo, patronsos;
     static Tablero tabpat;

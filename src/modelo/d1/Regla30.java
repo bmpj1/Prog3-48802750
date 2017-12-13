@@ -1,14 +1,17 @@
-package modelo;
+package modelo.d1;
 
 import java.util.Iterator;
 
+import modelo.EstadoCelda;
+import modelo.Regla;
+import modelo.Tablero;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
  * Clase que se encarga de actualizar las celdas de un juego con Coordenadas tipo Coordenada1D.
  * @author Brian Mathias, Pesci Juliani.
  */
-public class Regla30 extends Regla {
+public class Regla30 extends Regla<Coordenada1D> {
 	/**
 	 * Constructor base que no hace nada...
 	 */
@@ -21,12 +24,12 @@ public class Regla30 extends Regla {
 	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la posición está fuera del tablero.
 	 */
 	@Override
-	public EstadoCelda calculaSiguienteEstadoCelda(Tablero tablero, Coordenada posicion) throws ExcepcionPosicionFueraTablero {
+	public EstadoCelda calculaSiguienteEstadoCelda(Tablero<Coordenada1D> tablero, Coordenada1D posicion) throws ExcepcionPosicionFueraTablero {
 		if(tablero==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		
 		if( (posicion instanceof Coordenada1D) && (tablero instanceof Tablero1D) ) {
 			String vecinas="";
-			Iterator<Coordenada> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
+			Iterator<Coordenada1D> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
 			int i = 0;
 			while(cordVecinas.hasNext()) {
 			    i++;
@@ -37,7 +40,7 @@ public class Regla30 extends Regla {
 			/* Si hay 2 vecinas */
 			if(i==2) {
 				/* (x-1) */
-				Coordenada key = cordVecinas.next();
+				Coordenada1D key = cordVecinas.next();
 				vecinas += tablero.getCelda(key).getEstado();
 				/* (x) */
 				vecinas += tablero.getCelda(posicion).getEstado();

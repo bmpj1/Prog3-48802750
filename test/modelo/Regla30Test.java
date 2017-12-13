@@ -10,9 +10,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import modelo.d1.Coordenada1D;
+import modelo.d1.Regla30;
+import modelo.d1.Tablero1D;
+
 public class Regla30Test {
 
-	private Tablero1D tablero;
+	private Tablero<Coordenada1D> tablero;
 	private static Regla30 regla;
 
 	/**

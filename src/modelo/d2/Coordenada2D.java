@@ -1,5 +1,6 @@
-package modelo;
+package modelo.d2;
 
+import modelo.Coordenada;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;

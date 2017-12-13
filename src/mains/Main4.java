@@ -8,12 +8,12 @@ import entradasalida.ParserTableros;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import entradasalida.excepciones.ExcepcionLectura;
 import modelo.Coordenada;
-import modelo.Coordenada1D;
-import modelo.Coordenada2D;
 import modelo.Juego;
 import modelo.Patron;
 import modelo.Regla;
 import modelo.Tablero;
+import modelo.d1.Coordenada1D;
+import modelo.d2.Coordenada2D;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 

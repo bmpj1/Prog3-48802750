@@ -1,7 +1,7 @@
-package modelo;
+package modelo.d1;
 
+import modelo.Coordenada;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
-import modelo.excepciones.ExcepcionCoordenada1DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 /**
  * Clase que hereda de la clase abstracta Coordenada. Permite crear coordenadas de una dimension. 

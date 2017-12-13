@@ -3,18 +3,20 @@
  */
 package modelo;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Scanner;
-
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import modelo.d2.Coordenada2D;
+import modelo.d2.TableroCeldasCuadradas;
+
+import java.util.Scanner;
 
 /**
  * @author alcala

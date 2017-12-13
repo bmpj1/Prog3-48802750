@@ -8,7 +8,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
  * Clase que se encarga de almacenar un patron y su nombre.
  * @author Brian Mathias, Pesci Juliani
  */
-public class Patron {
+public class Patron<TipoCoordenada extends Coordenada> {
 	/**
 	 * Atributo privado que representa el nombre del patron.
 	 */
@@ -16,13 +16,13 @@ public class Patron {
 	/**
 	 * Atributo privado que representa la estructura de celdas vivas/muertas del patron 
 	 */
-	private Tablero tablero;
+	private Tablero<TipoCoordenada> tablero;
 	/**
 	 * Constructor por defecto que asigna un nombre y un tablero a un patron.
 	 * @param nombre Nombre del patron.
 	 * @param tablero Tablero que almacena la estructura.
 	 */
-	public Patron(String nombre, Tablero tablero) {
+	public Patron(String nombre, Tablero<TipoCoordenada> tablero) {
 		if(nombre == null || tablero==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		this.nombre = nombre;
 		this.tablero = tablero;
@@ -38,7 +38,7 @@ public class Patron {
 	 * @return Devuelve el estado VIVA/MUERTA de la celda.
 	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la Coordenada que se quiere obtener no es valida.
 	 */
-	public EstadoCelda getCelda(Coordenada c) throws ExcepcionPosicionFueraTablero {
+	public EstadoCelda getCelda(TipoCoordenada c) throws ExcepcionPosicionFueraTablero {
 		if(c==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		return tablero.getCelda(c);
 	}
@@ -46,7 +46,7 @@ public class Patron {
 	 * Metodo publico que devuelve una colecion de las celdas existentes. 
 	 * @return Devuelve una coleccion de las celdas que tiene el patron.
 	 */
-	public Collection<Coordenada> getPosiciones() {
+	public Collection<TipoCoordenada> getPosiciones() {
 		return tablero.getPosiciones();
 	}
 	/**

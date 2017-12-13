@@ -1,12 +1,13 @@
 package mains;
 
 import entradasalida.excepciones.ExcepcionLectura;
-import modelo.Coordenada1D;
 import modelo.EstadoCelda;
 import modelo.Juego;
 import modelo.Patron;
-import modelo.Regla30;
-import modelo.Tablero1D;
+import modelo.Tablero;
+import modelo.d1.Coordenada1D;
+import modelo.d1.Regla30;
+import modelo.d1.Tablero1D;
 
 public class Main3 {
 
@@ -18,9 +19,9 @@ public class Main3 {
 	 */
 	public static void main(String[] args)  {
 		try {
-			Tablero1D tablero = new Tablero1D(43);
+			Tablero<Coordenada1D> tablero = new Tablero1D(43);
 			Regla30 regla = new Regla30();
-			Tablero1D tableroPatrong = new Tablero1D(1);
+			Tablero<Coordenada1D> tableroPatrong = new Tablero1D(1);
 			tableroPatrong.setCelda(new Coordenada1D(0), EstadoCelda.VIVA);
 			Patron p = new Patron("Simple", tableroPatrong);
 			

@@ -1,7 +1,10 @@
-package modelo;
+package modelo.d2;
 
 import java.util.ArrayList;
 
+
+import modelo.EstadoCelda;
+import modelo.Imprimible;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
@@ -23,22 +26,21 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 	/**
 	 * Implementacion del Metodo abstracto que devuelve un array de las celdas vecinas en sentido antihorario.
 	 * @param posicion Es la coordenada central, a partir de la cual quiero mirar.
-	 * @return Devuelve un array que contiene entre 3 y 8 coordenadas vecinas a 'c'.
+	 * @return Devuelve un array que contiene entre 3 y 8 coordenadas vecinas a 'posicion'.
 	 * @throws ExcepcionPosicionFueraTablero 
 	 */
-	public ArrayList<Coordenada> getPosicionesVecinasCCW(Coordenada posicion) throws ExcepcionPosicionFueraTablero {
-		ArrayList<Coordenada> cordVecinas = new ArrayList<Coordenada>();
+	public ArrayList<Coordenada2D> getPosicionesVecinasCCW(Coordenada2D posicion) throws ExcepcionPosicionFueraTablero {
+		ArrayList<Coordenada2D> cordVecinas = new ArrayList<Coordenada2D>();
 		if(posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		if(!(posicion instanceof Coordenada2D)) {
-			/*throw excepcion->la coordenada c no es una instancia de Coordenada2D*/
+			/*throw excepcion->la coordenada posicion no es una instancia de Coordenada2D*/
 		}
-		Coordenada2D c = (Coordenada2D) posicion;
-		if(celdas.containsKey(c)==false) { throw new ExcepcionPosicionFueraTablero(dimensiones, c); }
+		if(celdas.containsKey(posicion)==false) { throw new ExcepcionPosicionFueraTablero(dimensiones, posicion); }
 		try {
 			Coordenada2D otra;
 			
-			int i=(c.getX()-1);
-			int j=(c.getY()-1);
+			int i=(posicion.getX()-1);
+			int j=(posicion.getY()-1);
 			
 			do {
 				if(i>-1 && j>-1) {
@@ -47,7 +49,7 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 						cordVecinas.add(otra);
 				}
 				j++;
-			} while(j<=(c.getY()+1));
+			} while(j<=(posicion.getY()+1));
 			j--;
 			i++;
 			do {
@@ -57,7 +59,7 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 						cordVecinas.add(otra);
 				}
 				i++;
-			}while(i<=(c.getX()+1));
+			}while(i<=(posicion.getX()+1));
 			i--;
 			j--;
 			do {
@@ -67,7 +69,7 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 						cordVecinas.add(otra);
 				}
 				j--;
-			}while(j>=(c.getY()-1));
+			}while(j>=(posicion.getY()-1));
 			j++;
 			i--;
 			if(i>-1 && j>-1) {
@@ -85,9 +87,8 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 	 * @return String Devuelve el tablero en formato String.
 	 */
 	public String toString() {
-		Coordenada2D dims = (Coordenada2D) dimensiones;
-		int X = dims.getX();
-		int Y = dims.getY();
+		int X = dimensiones.getX();
+		int Y = dimensiones.getY();
 		String impTablero = new String("");
 		
 		for(int i=-1;i <= X; i++) {
@@ -101,7 +102,8 @@ public class TableroCeldasCuadradas extends Tablero2D implements Imprimible {
 			for(int i=0; i<X; i++) {
 // ***********Cuidado con esta linea****************.
 				try {
-					impTablero += celdas.get(new Coordenada2D(i,j)).getEstado();
+					EstadoCelda e = (EstadoCelda) celdas.get(new Coordenada2D(i,j));
+					impTablero += e.getEstado();
 				} catch (ExcepcionCoordenadaIncorrecta e) {
 					throw new ExcepcionEjecucion(e);
 				}
