@@ -155,7 +155,7 @@ public class Juego1DP3Test {
 		s.close();
 		
 		//Comprobación de las iteraciones de los tableros finales del alumno.
-		Coordenada c;
+		Coordenada2D c;
 		for (int j=0; j<22; j++)
 			for (int i=0; i<43; i++) {
 				try {
@@ -205,7 +205,7 @@ public class Juego1DP3Test {
 		}
 	
 		//Comprobamos el contenido del tablero del alumno
-		Coordenada c;
+		Coordenada2D c;
 		for (int j=0; j<30; j++) //sucesivas iteraciones
 			for (int i=0; i<60; i++) { //índice tabla
 				try {
@@ -251,7 +251,7 @@ public class Juego1DP3Test {
 			
 		
 		//Comprobación del contenido del tablero del alumno
-		Coordenada c;
+		Coordenada2D c;
 		for (int j=0; j<40; j++)
 			for (int i=0; i<60; i++) {
 				c = new Coordenada2D(i,j);
@@ -294,7 +294,7 @@ public class Juego1DP3Test {
 			}
 			s.close();
 		//Comprobación del contenido del tablero del alumno
-			Coordenada c;
+			Coordenada2D c;
 			for (int j=0; j<2; j++)
 				for (int i=0; i<12; i++) {
 					c = new Coordenada2D(i,j);

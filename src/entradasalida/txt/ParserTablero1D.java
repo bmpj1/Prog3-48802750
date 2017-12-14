@@ -23,7 +23,7 @@ public class ParserTablero1D implements IParserTablero{
 	public Tablero leeTablero(String cadena) throws ExcepcionLectura {
 		if(cadena == null) { throw new ExcepcionArgumentosIncorrectos(); }
 		if(cadena == "") { throw new ExcepcionLectura("No se aceptan cadenas vacias."); }
-		Tablero<Coordenada1D> tablero = null;
+		Tablero1D tablero = null;
 		
 		try {
 			tablero = new Tablero1D(cadena.length());

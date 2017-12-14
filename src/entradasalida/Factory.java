@@ -37,6 +37,25 @@ public class Factory {
 	{
 		if(tablero==null || extension==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		IGeneradorFichero genFich= null;
+		// Creo la dirección de la clase
+		String dirClase = "entradasalida."+ extension + ".GeneradorTablero" + tablero.getDimensiones().getClass().getSimpleName();
+/* ---------------------- PREGUNTAR POR ESTE TRY-CATCH --------------------- */
+			// Intento instanciar a IGeneradorFichero
+			try {
+				genFich = (IGeneradorFichero) Class.forName(dirClase).newInstance();
+			} catch (InstantiationException | IllegalAccessException e) {
+				throw new ExcepcionGeneracion(e);
+			} catch (ClassNotFoundException e) {
+				throw new ExcepcionGeneracion("GeneradorTablero" + tablero.getDimensiones().getClass().getSimpleName());
+			}
+		
+/*DUDA:
+ * ·¿El parametro Tablero se podría poner como Tablero<? extends Coordenada> para quitar el warning?
+ */
+		
+ /*---------------------------------------------------------------------------- */
+		
+		/*
 		if(extension.equals("txt")) {
 			genFich = new GeneradorFicheroPlano();
 			
@@ -52,7 +71,7 @@ public class Factory {
 				throw new ExcepcionEjecucion("El tablero no es valido.");
 			}
 		} else { throw new ExcepcionGeneracion("La extension del archivo no es válida."); }
-		
+		*/
 		return genFich; 
 	}
 	/**
@@ -96,3 +115,9 @@ public class Factory {
 		return tablero;
 	}
 }
+/* REFERENCIAS:
+ * 		Class: https://docs.oracle.com/javase/7/docs/api/java/lang/Class.html
+ * 		Reflexion: http://java-white-box.blogspot.com.es/2016/02/api-reflect-que-es-reflexion-por-donde.html
+ * 		Genericidad en Java: http://dis.um.es/docencia/poo/wiki/lib/exe/fetch.php?media=curso2013:tema4-1.pdf
+ * 		
+ * */

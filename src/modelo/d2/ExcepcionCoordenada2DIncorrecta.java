@@ -1,8 +1,12 @@
-package modelo.excepciones;
+package modelo.d2;
+
+import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
+
 /**
  * Clase de excepcion de la rama Exception  que hereda de ExcepcionCoordenadaIncorrecta. Se utiliza cuando el constructor Coordenada2D(int,int) recibe un negativo en alguno de sus argumentos.
  * @author Brian Mathias, Pesci Juliani
  */
+@SuppressWarnings("serial")
 public class ExcepcionCoordenada2DIncorrecta extends ExcepcionCoordenadaIncorrecta {
 	/**
 	 * X Es la anchura que dio error.

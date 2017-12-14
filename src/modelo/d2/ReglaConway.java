@@ -31,24 +31,23 @@ public class ReglaConway extends Regla<Coordenada2D> {
 	 */
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero<Coordenada2D> tablero, Coordenada2D posicion) throws ExcepcionPosicionFueraTablero {
 		if(tablero==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
-		
-		if( (posicion instanceof Coordenada2D) && (tablero instanceof Tablero2D)) {
-			int vecinas=0;
-			Iterator<Coordenada2D> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
-			while(cordVecinas.hasNext() && vecinas!=4) {
-				Coordenada2D key = cordVecinas.next();
-				if(tablero.getCelda(key)==EstadoCelda.VIVA) {
-					vecinas++;
-				}
+			
+		int vecinas=0;
+		Iterator<Coordenada2D> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
+		while(cordVecinas.hasNext() && vecinas!=4) {
+			Coordenada2D key = cordVecinas.next();
+			if(tablero.getCelda(key)==EstadoCelda.VIVA) {
+				vecinas++;
 			}
-			if(tablero.getCelda(posicion)==EstadoCelda.VIVA && (vecinas==2 || vecinas==3)) {
-				nuevoEstado = EstadoCelda.VIVA;
-			} 	else if(tablero.getCelda(posicion)==EstadoCelda.MUERTA && vecinas==3) {
-				nuevoEstado = EstadoCelda.VIVA;
-				} else {
-					nuevoEstado = EstadoCelda.MUERTA;
-				}
 		}
+		if(tablero.getCelda(posicion)==EstadoCelda.VIVA && (vecinas==2 || vecinas==3)) {
+			nuevoEstado = EstadoCelda.VIVA;
+		} 	else if(tablero.getCelda(posicion)==EstadoCelda.MUERTA && vecinas==3) {
+			nuevoEstado = EstadoCelda.VIVA;
+			} else {
+				nuevoEstado = EstadoCelda.MUERTA;
+			}
+		
 		return nuevoEstado;		
 	}
 }

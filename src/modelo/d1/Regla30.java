@@ -27,7 +27,6 @@ public class Regla30 extends Regla<Coordenada1D> {
 	public EstadoCelda calculaSiguienteEstadoCelda(Tablero<Coordenada1D> tablero, Coordenada1D posicion) throws ExcepcionPosicionFueraTablero {
 		if(tablero==null || posicion==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		
-		if( (posicion instanceof Coordenada1D) && (tablero instanceof Tablero1D) ) {
 			String vecinas="";
 			Iterator<Coordenada1D> cordVecinas = tablero.getPosicionesVecinasCCW(posicion).iterator();
 			int i = 0;
@@ -71,7 +70,5 @@ public class Regla30 extends Regla<Coordenada1D> {
 	
 			/* Si hay 1 vecina. */
 			return EstadoCelda.MUERTA;
-		}
-		return null;
 	}
 }

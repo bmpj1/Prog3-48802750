@@ -3,7 +3,7 @@ package mains;
 import java.util.ArrayList;
 
 import modelo.d2.Coordenada2D;
-import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
+import modelo.d2.ExcepcionCoordenada2DIncorrecta;
 
 /**
 @author drizo
@@ -17,8 +17,6 @@ public class Main1_P3b {
 	 */
 	public static void main(String[] args)  {
 		try {
-		
-			
 			Coordenada2D c0; // no se instancia porque no se ha hecho new
 			Coordenada2D c1 = new Coordenada2D(0,0);
 			Coordenada2D c2 = new Coordenada2D(10,10);

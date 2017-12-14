@@ -5,8 +5,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import modelo.d1.Coordenada1D;
-import modelo.d2.Coordenada2D;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
@@ -27,7 +25,7 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
 	/**
 	 * Constructor que asigna unas dimensiones a un tablero e inicializa sus celdas en estado MUERTA.
 	 * @param dimensiones Es el tamanyo que tendra el tablero.
-	 * @throws ExcepcionCoordenadaIncorrecta Lanza la excepcion cuando la TipoCoordenada no es valida.
+	 * @throws ExcepcionCoordenadaIncorrecta Lanza la excepcion cuando la coordenada no es valida.
 	 */
 	protected Tablero(TipoCoordenada dimensiones) throws ExcepcionCoordenadaIncorrecta
 	{
@@ -54,7 +52,7 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
 	}
 	/**
 	 * Metodo que devuelve el estado de una celda concreta, en caso de que la celda no exista imprime un mensaje de error y devuelve null.
-	 * @param posicion Es la TipoCoordenada a evaluar.
+	 * @param posicion Es la coordenada a evaluar.
 	 * @return Devuelve el estado de la celda o null si la celda no existe.
 	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la posicion no es valida.
 	 */
@@ -76,16 +74,16 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
 	}
 	/**
 	 * Metodo abstractoque devuelve un array de las celdas vecinas en sentido antihorario.
-	 * @param c es la TipoCoordenada central, a partir de la cual quiero mirar.
+	 * @param c es la coordenada central, a partir de la cual quiero mirar.
 	 * @return Devuelve un array que contiene las coordenadas vecinas a 'c'.
 	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la celda no existe.
 	 */
 	public abstract ArrayList<TipoCoordenada> getPosicionesVecinasCCW(TipoCoordenada c) throws ExcepcionPosicionFueraTablero;
 	/**
-	 * Metodo publico que se encarga de intentar cargar un Patron<TipoCoordenada> en el tablero.
-	 * @param p Es el Patron<TipoCoordenada> a cargar.
-	 * @param posicion Es la TipoCoordenada a partir de la cual se intenta cargar.
-	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la TipoCoordenada esta fuera del tablero.
+	 * Metodo publico que se encarga de intentar cargar un patron en el tablero.
+	 * @param p Es el patron a cargar.
+	 * @param posicion Es la coordenada a partir de la cual se intenta cargar.
+	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la coordenada esta fuera del tablero.
 	 */
 	@SuppressWarnings("unchecked")
 	public void cargaPatron(Patron<TipoCoordenada> p, TipoCoordenada posicion) throws ExcepcionPosicionFueraTablero {
@@ -103,16 +101,24 @@ public abstract class Tablero<TipoCoordenada extends Coordenada> {
 			while(iterator.hasNext()) {
 				TipoCoordenada key = iterator.next();
 				TipoCoordenada keyDef = (TipoCoordenada) key.suma(posicion);
-				celdas.replace( keyDef, p.getCelda(key));
+				celdas.put(keyDef, p.getCelda(key));
+				/*
+				if(posicion instanceof Coordenada2D) {
+					Coordenada2D keyDefensiva = (Coordenada2D) key;
+					celdas.put(keyDefensiva.suma(posicion), p.getCelda(keyDefensiva));
+				} else if(posicion instanceof Coordenada1D) {
+					Coordenada1D keyDefensiva = (Coordenada1D) key;
+					celdas.put(keyDefensiva.suma(posicion), p.getCelda(keyDefensiva));					
+				}*/
+				
 			}
-			
 		} catch (ExcepcionCoordenadaIncorrecta e) {
 			throw new ExcepcionEjecucion(e);
 		}
 	}
 	/**
-	 * Metodo publico que se encarga de comprobar si una TipoCoordenada existe.
-	 * @param posicion Es la TipoCoordenada a comprobar.
+	 * Metodo publico que se encarga de comprobar si una coordenada existe.
+	 * @param posicion Es la coordenada a comprobar.
 	 * @return Contiene Devuelve true en caso de que la celda existe, false en caso contrario.
 	 */
 	public boolean contiene(TipoCoordenada posicion) {

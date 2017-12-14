@@ -6,6 +6,7 @@ import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
  * Clase de excepcion de la rama Exception que hereda de ExcepcionCoordenadaIncorrecta. Se utiliza cuando el constructor de Coordenada1D(int) recibe un negativo.
  * @author Brian Mathias, Pesci Juliani
  */
+@SuppressWarnings("serial")
 public class ExcepcionCoordenada1DIncorrecta extends ExcepcionCoordenadaIncorrecta {
 	/**
 	 * X Es un atributo privado que almacena el valor que desencadeno el error.

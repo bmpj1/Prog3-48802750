@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import modelo.d2.Coordenada2D;
+import modelo.d2.ExcepcionCoordenada2DIncorrecta;
 import modelo.d2.ReglaConway;
 import modelo.d2.TableroCeldasCuadradas;
-import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 import org.junit.Before;

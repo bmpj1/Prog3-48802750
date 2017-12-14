@@ -11,9 +11,9 @@ import java.util.Scanner;
 import java.util.Set;
 
 import modelo.d2.Coordenada2D;
+import modelo.d2.ExcepcionCoordenada2DIncorrecta;
 import modelo.d2.Tablero2D;
 import modelo.d2.TableroCeldasCuadradas;
-import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
@@ -129,7 +129,7 @@ public class Tablero2DTest {
 	
 	@Test
 	public void testGetPosiciones() {
-		Set<Coordenada> sc = (Set<Coordenada>)tab.getPosiciones();
+		Set<Coordenada2D> sc = (Set<Coordenada2D>)tab.getPosiciones();
 		assertEquals("Total posiciones",40,sc.size());
 		for (int i=0; i<dim.getX();i++)
 			for (int j=0; j<dim.getY(); j++) {
@@ -145,7 +145,7 @@ public class Tablero2DTest {
 	
 	@Test
 	public void testGetCeldasNoExisten() {
-		Coordenada c = null;
+		Coordenada2D c = null;
 	    try {
 	    	c = new Coordenada2D(8,5);
 			assertNull("No existe celda (8,5)",tab.getCelda(c));
@@ -190,7 +190,7 @@ public class Tablero2DTest {
 	@Test
 	public void testSetCelda() {
 	
-		Coordenada c=null, cerr=null;
+		Coordenada2D c=null, cerr=null;
 		
 		try {
 			c = new Coordenada2D(7,5);		

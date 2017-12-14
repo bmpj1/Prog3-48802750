@@ -25,11 +25,11 @@ import modelo.d1.ExcepcionCoordenada1DIncorrecta;
 import modelo.d1.Regla30;
 import modelo.d1.Tablero1D;
 import modelo.d2.Coordenada2D;
+import modelo.d2.ExcepcionCoordenada2DIncorrecta;
 import modelo.d2.ReglaConway;
 import modelo.d2.Tablero2D;
 import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
-import modelo.excepciones.ExcepcionCoordenada2DIncorrecta;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
@@ -111,8 +111,8 @@ public class MainCompilacionP4 {
 				
 		try {
 			//Coordenada
-			Coordenada1D c1 = new Coordenada1D(new Coordenada1D(5));
-			Coordenada2D c2 = new Coordenada2D(new Coordenada2D(1,2));
+			Coordenada c1 = new Coordenada1D(new Coordenada1D(5));
+			Coordenada c2 = new Coordenada2D(new Coordenada2D(1,2));
 			c1.suma(c1);
 			c2.suma(c2);
 			c1.toString();
@@ -134,8 +134,8 @@ public class MainCompilacionP4 {
 			t1.contiene(c1);
 			Tablero1D t1d1 = (Tablero1D)t1;
 			TableroCeldasCuadradas t2dc = (TableroCeldasCuadradas)t2;
-			t1d1.getPosicionesVecinasCCW(c1); t1d1.toString();
-			t2dc.getPosicionesVecinasCCW(c2); t2dc.toString();
+			t1d1.getPosicionesVecinasCCW((Coordenada1D) c1); t1d1.toString();
+			t2dc.getPosicionesVecinasCCW((Coordenada2D) c2); t2dc.toString();
 			
 			//Patron
 			Patron p = new Patron("Test",t1);

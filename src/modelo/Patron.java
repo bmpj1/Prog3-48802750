@@ -20,7 +20,7 @@ public class Patron<TipoCoordenada extends Coordenada> {
 	/**
 	 * Constructor por defecto que asigna un nombre y un tablero a un patron.
 	 * @param nombre Nombre del patron.
-	 * @param tablero Tablero que almacena la estructura.
+	 * @param tablero Tablero<TipoCoordenada> que almacena la estructura.
 	 */
 	public Patron(String nombre, Tablero<TipoCoordenada> tablero) {
 		if(nombre == null || tablero==null) { throw new ExcepcionArgumentosIncorrectos(); }
@@ -34,9 +34,9 @@ public class Patron<TipoCoordenada extends Coordenada> {
 	public String getNombre() { return nombre; }
 	/**
 	 * Metodo publico que obtiene el estado de una celda concreta.
-	 * @param c Coordenada de la cualobtendremos el estado.
+	 * @param c TipoCoordenada de la cualobtendremos el estado.
 	 * @return Devuelve el estado VIVA/MUERTA de la celda.
-	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la Coordenada que se quiere obtener no es valida.
+	 * @throws ExcepcionPosicionFueraTablero Lanza la excepcion cuando la TipoCoordenada que se quiere obtener no es valida.
 	 */
 	public EstadoCelda getCelda(TipoCoordenada c) throws ExcepcionPosicionFueraTablero {
 		if(c==null) { throw new ExcepcionArgumentosIncorrectos(); }

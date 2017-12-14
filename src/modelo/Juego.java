@@ -27,8 +27,8 @@ public class Juego<TipoCoordenada extends Coordenada> {
 	private Regla<TipoCoordenada> regla;
 	/**
 	 * Constructor que inicializa los atributos tablero y regla.
-	 * @param tablero Tablero<TipoCoordenada> donde se desarrollara el juego de la vida.
-	 * @param regla Regla<TipoCoordenada> que se encargará de actualizar las celdas del juego.
+	 * @param tablero Tablero donde se desarrollara el juego de la vida.
+	 * @param regla Regla que se encargará de actualizar las celdas del juego.
 	 */
 	public Juego(Tablero<TipoCoordenada> tablero, Regla<TipoCoordenada> regla) {
 		if(tablero==null || regla==null) { throw new ExcepcionArgumentosIncorrectos(); }

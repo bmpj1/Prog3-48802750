@@ -5,6 +5,7 @@ import modelo.Coordenada;
  * Clase de excepcion que hereda de java.lang.Exception. Se utiliza cuando se intenta cargar una Coordenada en un tablero pero esa Coordenada no existe.
  * @author Brian Mathias, Pesci Juliani
  */
+@SuppressWarnings("serial")
 public class ExcepcionPosicionFueraTablero extends Exception {
 	/**
 	 * Atributo privado que guarda una Coordenada con las dimensiones del tablero.

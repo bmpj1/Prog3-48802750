@@ -3,6 +3,7 @@ package entradasalida;
 import java.io.File;
 
 import entradasalida.excepciones.ExcepcionGeneracion;
+import modelo.Coordenada;
 import modelo.Juego;
 /**
  * Interfaz que enlaza los generadores de ficheros
@@ -16,5 +17,5 @@ public interface IGeneradorFichero {
 	 * @param iteraciones numero de iteraciones
 	 * @throws ExcepcionGeneracion Excepcion que se puede lanzar.
 	 */
-	public void generaFichero(File fichero, Juego juego, int iteraciones) throws ExcepcionGeneracion;
+	public void generaFichero(File fichero, Juego<? extends Coordenada> juego, int iteraciones) throws ExcepcionGeneracion;
 }

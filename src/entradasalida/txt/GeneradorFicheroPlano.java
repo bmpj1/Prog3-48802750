@@ -42,15 +42,14 @@ public class GeneradorFicheroPlano implements IGeneradorFichero{
 				} else {
 					throw new ExcepcionGeneracion("El tablero del juego no implementa la interfaz Imprimible.");
 				}
-
+				
 			}
 		} catch (Exception e) {
 			throw new ExcepcionGeneracion(e);
 		}
 		finally {
-			if(p != null) {
-				p.close();
-			}
+			if( p!= null)
+				p.close();				
 		}
 	}
 

@@ -16,7 +16,7 @@ import modelo.d1.Tablero1D;
 
 public class Regla30Test {
 
-	private Tablero<Coordenada1D> tablero;
+	private Tablero1D tablero;
 	private static Regla30 regla;
 
 	/**
