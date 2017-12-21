@@ -11,6 +11,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
  * Clase principal del programa que se encarga de enlazar una regla con un tablero y muchos patrones.
  * @author Brian Mathias, Pesci Juliani
+ * @param <TipoCoordenada> Es el tipo de Coordenada para la generalizción.
  */
 public class Juego<TipoCoordenada extends Coordenada> {
 	/**
