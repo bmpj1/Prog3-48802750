@@ -20,7 +20,7 @@ public class ParserTablero1D implements IParserTablero{
 	 */
 	public ParserTablero1D() { }
 	/** {@inheritDoc} */
-	public Tablero leeTablero(String cadena) throws ExcepcionLectura {
+	public Tablero<Coordenada1D> leeTablero(String cadena) throws ExcepcionLectura {
 		if(cadena == null) { throw new ExcepcionArgumentosIncorrectos(); }
 		if(cadena == "") { throw new ExcepcionLectura("No se aceptan cadenas vacias."); }
 		Tablero1D tablero = null;
@@ -49,5 +49,5 @@ public class ParserTablero1D implements IParserTablero{
 		}
 		return tablero;
 	}
-	
+	 
 }

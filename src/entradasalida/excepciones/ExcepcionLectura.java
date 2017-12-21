@@ -3,6 +3,7 @@ package entradasalida.excepciones;
  * Clase de excepcion que se produce en lectura de tableros 
  * @author Brian Mathias, Pesci Juliani
  */ 
+@SuppressWarnings("serial")
 public class ExcepcionLectura extends Exception {
 	/**
 	 * Constructor vacio

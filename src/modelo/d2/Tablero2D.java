@@ -1,5 +1,5 @@
 package modelo.d2;
-
+ 
 import modelo.EstadoCelda;
 import modelo.Tablero;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;

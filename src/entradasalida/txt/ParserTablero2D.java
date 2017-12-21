@@ -1,5 +1,5 @@
 package entradasalida.txt;
-
+ 
 import java.util.HashMap;
 
 import entradasalida.IParserTablero;
@@ -23,7 +23,7 @@ public class ParserTablero2D implements IParserTablero{
 	 */
 	public ParserTablero2D() { }
 	/** {@inheritDoc} */
-	public Tablero leeTablero(String cadena) throws ExcepcionLectura {
+	public Tablero<Coordenada2D> leeTablero(String cadena) throws ExcepcionLectura {
 		if(cadena == null) { throw new ExcepcionArgumentosIncorrectos(); }
 		if(cadena == "") { throw new ExcepcionLectura("No se aceptan cadenas vacias."); }
 		TableroCeldasCuadradas tablero = null;

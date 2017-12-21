@@ -1,5 +1,5 @@
 package modelo;
-
+ 
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
  * Clase abstracta que permite la implementación de varias Reglas sin copiar mucho codigo. 

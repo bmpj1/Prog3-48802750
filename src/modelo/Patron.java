@@ -1,5 +1,5 @@
 package modelo;
-
+ 
 import java.util.Collection;
 
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;

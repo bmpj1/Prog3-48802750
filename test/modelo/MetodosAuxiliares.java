@@ -41,9 +41,11 @@ public class MetodosAuxiliares {
 		String comando = null;
 		if (FileUtils.getFileExtension(f1).equals("txt"))
 			comando = new String("diff "+f1+" "+f2);
+			// comando para windows = new String("FC /L "+f1+" "+f2);
 		else 
 			if(FileUtils.getFileExtension(f1).equals("gif"))
 				comando = new String("cmp -b "+f1+" "+f2);
+				// comando para windows = new String("FC /B "+f1+" "+f2);
 			else {
 				System.out.println("Error, el fichero "+f1+" no tiene ni extensión txt ni gif");
 				return false;

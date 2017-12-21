@@ -13,5 +13,6 @@ public interface IParserTablero {
 	 * @return tablero devuelve un tablero
 	 * @throws ExcepcionLectura excepcion que se da al leer.
 	 */
+	@SuppressWarnings("rawtypes")
 	public Tablero leeTablero(String nombre) throws ExcepcionLectura; 
 }

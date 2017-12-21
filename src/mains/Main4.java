@@ -1,7 +1,7 @@
 package mains;
 
 import java.io.File;
-
+ 
 import entradasalida.Factory;
 import entradasalida.IGeneradorFichero;
 import entradasalida.ParserTableros;

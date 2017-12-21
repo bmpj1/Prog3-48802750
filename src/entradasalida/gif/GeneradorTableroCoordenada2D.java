@@ -25,7 +25,8 @@ public class GeneradorTableroCoordenada2D implements IGeneradorFichero {
 	public GeneradorTableroCoordenada2D() { super(); }
 	
 	/** {@inheritDoc} */
-	public void generaFichero(File fichero, Juego juego, int iteraciones) throws ExcepcionGeneracion {
+	@SuppressWarnings("unchecked")
+	public void generaFichero(File fichero, @SuppressWarnings("rawtypes") Juego juego, int iteraciones) throws ExcepcionGeneracion {
 		if(fichero==null || juego==null) { throw new ExcepcionArgumentosIncorrectos();}
 		if(!(iteraciones > 0)) { throw new ExcepcionGeneracion("El valor de iteraciones tiene que ser mayor que 0"); }
 		

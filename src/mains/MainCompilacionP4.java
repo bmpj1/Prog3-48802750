@@ -35,7 +35,7 @@ import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
 
 public class MainCompilacionP4 {
-	
+	 
 	
 	public static void main(String [] args) {
 		
@@ -106,7 +106,7 @@ public class MainCompilacionP4 {
 		try { p1d.getCelda(c1d); } catch (ExcepcionPosicionFueraTablero ex) {}
 		try { p2d.getCelda(c1d); } catch (ExcepcionPosicionFueraTablero ex) {}
 		try { r1d.calculaSiguienteEstadoCelda(t, c1d); } catch (ExcepcionPosicionFueraTablero ex) {}
-		try { r2d.calculaSiguienteEstadoCelda(t, c1d); } catch (ExcepcionPosicionFueraTablero ex) {}
+		// falla por que usar una coordenada 1d en regla conway try { r2d.calculaSiguienteEstadoCelda(t, c1d); } catch (ExcepcionPosicionFueraTablero ex) {}
 		try { j.cargaPatron(p2d, c2d); } catch (ExcepcionPosicionFueraTablero ex) {}
 				
 		try {

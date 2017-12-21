@@ -1,5 +1,5 @@
 package mains;
-
+ 
 import entradasalida.excepciones.ExcepcionLectura;
 import modelo.EstadoCelda;
 import modelo.Juego;
@@ -7,7 +7,6 @@ import modelo.Patron;
 import modelo.d1.Coordenada1D;
 import modelo.d1.Regla30;
 import modelo.d1.Tablero1D;
-
 public class Main3 {
 
 	/**
@@ -22,9 +21,9 @@ public class Main3 {
 			Regla30 regla = new Regla30();
 			Tablero1D tableroPatrong = new Tablero1D(1);
 			tableroPatrong.setCelda(new Coordenada1D(0), EstadoCelda.VIVA);
-			Patron p = new Patron("Simple", tableroPatrong);
+			Patron<Coordenada1D> p = new Patron<Coordenada1D>("Simple", tableroPatrong);
 			
-			Juego juego = new Juego(tablero, regla);
+			Juego<Coordenada1D> juego = new Juego<Coordenada1D>(tablero, regla);
 			juego.cargaPatron(p, new Coordenada1D(22));
 			for (int i=0; i<22; i++) {
 				System.out.print(juego.getTablero().toString());

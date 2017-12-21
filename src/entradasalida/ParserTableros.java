@@ -20,6 +20,7 @@ public class ParserTableros {
 	 * @return pt1d.leeTablero(cadena) devuelve el tablero creado
 	 * @throws ExcepcionLectura excepcion que se da al leer la cadena.
 	 */
+	@SuppressWarnings("rawtypes")
 	public static Tablero leeTablero(String cadena) throws ExcepcionLectura {
 		
 		if(cadena==null) { throw new ExcepcionArgumentosIncorrectos(); }

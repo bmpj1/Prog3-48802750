@@ -1,9 +1,6 @@
 package entradasalida;
  
 import entradasalida.excepciones.ExcepcionGeneracion;
-import entradasalida.gif.GeneradorTableroCoordenada1D;
-import entradasalida.gif.GeneradorTableroCoordenada2D;
-import entradasalida.txt.GeneradorFicheroPlano;
 import modelo.Coordenada;
 import modelo.Regla;
 import modelo.Tablero;
@@ -33,6 +30,7 @@ public class Factory {
 	 * @return genFich Fichero creado
 	 * @throws ExcepcionGeneracion Excepcion que se da cuando la extension no es valida.
 	 */
+	@SuppressWarnings("rawtypes")
 	public static IGeneradorFichero creaGeneradorFichero(Tablero tablero,String extension) throws ExcepcionGeneracion 
 	{
 		if(tablero==null || extension==null) { throw new ExcepcionArgumentosIncorrectos(); }
@@ -48,7 +46,7 @@ public class Factory {
 			} catch (ClassNotFoundException e) {
 				throw new ExcepcionGeneracion("GeneradorTablero" + tablero.getDimensiones().getClass().getSimpleName());
 			}
-		
+	
 /*DUDA:
  * ·¿El parametro Tablero se podría poner como Tablero<? extends Coordenada> para quitar el warning?
  */
@@ -79,6 +77,7 @@ public class Factory {
 	 * @param tablero tablero
 	 * @return regla devuelve la regla creada
 	 */
+	@SuppressWarnings("rawtypes")
 	public static Regla creaRegla(Tablero tablero) {
 		if(tablero==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		Regla regla = null;
@@ -100,6 +99,7 @@ public class Factory {
 	 * @return tablero devuelve el tablero creado.
 	 * @throws ExcepcionCoordenadaIncorrecta Excepcion que se da cuando el tablero no es valido
 	 */
+	@SuppressWarnings("rawtypes")
 	public static Tablero creaTablero(Coordenada dimensiones) throws ExcepcionCoordenadaIncorrecta {
 		if(dimensiones==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		Tablero tablero = null;

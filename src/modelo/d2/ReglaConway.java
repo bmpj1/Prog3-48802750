@@ -1,5 +1,5 @@
 package modelo.d2;
-
+ 
 import java.util.Iterator;
 
 import modelo.EstadoCelda;

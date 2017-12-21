@@ -1,6 +1,6 @@
 package mains;
 
-import java.io.File;
+import java.io.File; 
 
 import entradasalida.Factory;
 import entradasalida.IGeneradorFichero;
@@ -21,9 +21,9 @@ public class Main4_1D {
 				Regla30 regla = new Regla30();
 				Tablero1D tableroPatrong = new Tablero1D(1);
 				tableroPatrong.setCelda(new Coordenada1D(0), EstadoCelda.VIVA);
-				Patron p = new Patron("Simple", tableroPatrong);
+				Patron<Coordenada1D> p = new Patron<Coordenada1D>("Simple", tableroPatrong);
 				
-				Juego juego = new Juego(tablero, regla);
+				Juego<Coordenada1D> juego = new Juego<Coordenada1D>(tablero, regla);
 				juego.cargaPatron(p, new Coordenada1D(40));
 				IGeneradorFichero generador = Factory.creaGeneradorFichero(tablero, FileUtils.getFileExtension(args[0]));
 				generador.generaFichero(new File(args[0]), juego, 30);

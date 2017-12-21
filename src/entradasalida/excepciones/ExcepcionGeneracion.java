@@ -3,6 +3,7 @@ package entradasalida.excepciones;
  * Clase de excepcion que se da al generar un fichero. 
  * @author Brian Mathias, Pesci Juliani
  */ 
+@SuppressWarnings("serial")
 public class ExcepcionGeneracion extends Exception {
 	/**
 	 * Constructor vacio de excepcion

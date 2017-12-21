@@ -6,7 +6,6 @@ import java.util.Iterator;
 import entradasalida.IGeneradorFichero;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import gifs.ImagenGIF;
-import modelo.Coordenada;
 import modelo.EstadoCelda;
 import modelo.Juego;
 import modelo.d1.Coordenada1D;
@@ -23,6 +22,7 @@ public class GeneradorTableroCoordenada1D implements IGeneradorFichero {
 	public GeneradorTableroCoordenada1D() { super(); }
 	
 	/** {@inheritDoc} */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void generaFichero(File fichero, Juego juego, int iteraciones) throws ExcepcionGeneracion {
 		if(fichero==null || juego==null) { throw new ExcepcionArgumentosIncorrectos();}
 		if(!(iteraciones > 0)) { throw new ExcepcionGeneracion("El valor de iteraciones tiene que ser mayor que 0"); }
@@ -33,7 +33,7 @@ public class GeneradorTableroCoordenada1D implements IGeneradorFichero {
 			
 			for(int j=0; j<iteraciones; j++) {
 				/* Recorre las celdas del tablero. */
-				Iterator<Coordenada> listaCoordenadasTablero = juego.getTablero().getPosiciones().iterator();
+				Iterator<Coordenada1D> listaCoordenadasTablero = juego.getTablero().getPosiciones().iterator();
 				
 				while(listaCoordenadasTablero.hasNext()) {
 					

@@ -1,5 +1,5 @@
 package modelo.d1;
-
+ 
 import java.util.ArrayList;
 
 import modelo.EstadoCelda;

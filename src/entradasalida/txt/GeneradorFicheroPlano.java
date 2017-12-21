@@ -7,8 +7,6 @@ import entradasalida.IGeneradorFichero;
 import entradasalida.excepciones.ExcepcionGeneracion;
 import modelo.Imprimible;
 import modelo.Juego;
-import modelo.d1.Tablero1D;
-import modelo.d2.TableroCeldasCuadradas;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 
 /**
@@ -22,6 +20,7 @@ public class GeneradorFicheroPlano implements IGeneradorFichero{
 	public GeneradorFicheroPlano() { super(); }
 	 
 	/** {@inheritDoc} */
+	@SuppressWarnings("rawtypes")
 	public void generaFichero(File file, Juego juego, int iteraciones) throws ExcepcionGeneracion {
 		if(file==null) { throw new ExcepcionArgumentosIncorrectos(); }
 		if(juego==null) { throw new ExcepcionArgumentosIncorrectos(); }
@@ -52,5 +51,4 @@ public class GeneradorFicheroPlano implements IGeneradorFichero{
 				p.close();				
 		}
 	}
-
 }

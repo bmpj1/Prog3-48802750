@@ -1,5 +1,5 @@
 package modelo.d1;
-
+ 
 import modelo.Coordenada;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionCoordenadaIncorrecta;

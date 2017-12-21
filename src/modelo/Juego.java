@@ -7,7 +7,7 @@ import java.util.Iterator;
 import modelo.excepciones.ExcepcionArgumentosIncorrectos;
 import modelo.excepciones.ExcepcionEjecucion;
 import modelo.excepciones.ExcepcionPosicionFueraTablero;
-
+ 
 /**
  * Clase principal del programa que se encarga de enlazar una regla con un tablero y muchos patrones.
  * @author Brian Mathias, Pesci Juliani
