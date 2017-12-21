@@ -7,6 +7,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
  * Clase que se encarga de almacenar un patron y su nombre.
  * @author Brian Mathias, Pesci Juliani
+ * @param <TipoCoordenada> Es el tipo de Coordenada para la generalizción.
  */
 public class Patron<TipoCoordenada extends Coordenada> {
 	/**
