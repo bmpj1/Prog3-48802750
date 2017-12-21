@@ -12,6 +12,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
  * Clase abstracta que representa la matriz de celdas usadas en el juego de la vida.
  * @author Brian Mathias, Pesci Juliani
+ * @param <TipoCoordenada> Es el tipo de Coordenada para la generalizción.
  */
 public abstract class Tablero<TipoCoordenada extends Coordenada> {
 	/**
