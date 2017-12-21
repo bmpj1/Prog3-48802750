@@ -4,7 +4,7 @@ import modelo.excepciones.ExcepcionPosicionFueraTablero;
 /**
  * Clase abstracta que permite la implementación de varias Reglas sin copiar mucho codigo. 
  * @author Brian Mathias, Pesci Juliani.
- *
+ * @param <TipoCoordenada> Es el tipo de Coordenada para la generalizción.
  */
 public abstract class Regla<TipoCoordenada extends Coordenada> {
 	/**
